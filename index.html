@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abrigo Saúde PME</title>
+<meta name="description" content="Plano de saúde no CNPJ para MEI, ME e pequenas empresas. Sua cotação começa com uma conversa: a assistente Bia entende o perfil da empresa, simula opções e chama um corretor na hora certa.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#082B3A">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Abrigo Saúde PME">
+<meta property="og:title" content="Abrigo Saúde PME · Sua cotação começa com uma conversa">
+<meta property="og:description" content="Simule um plano de saúde empresarial em cerca de 2 minutos com a assistente Bia e fale com um corretor quando precisar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: faixa petróleo com o cartão do beneficiário; seção "Sua cotação começa com uma conversa" com o celular da Bia como peça central e a Visão do corretor em gaveta lateral; seções claras de apoio abaixo. Tema claro fixo para uma apresentação previsível. */
+:root{
+  color-scheme:light;
+  --bg:#F5F7F9; --surface:#FFFFFF; --ink:#0D1B29; --muted:#52636F; --line:#DFE6EC; --soft:#E6F4F1;
+  --petrol:#082B3A; --petrol-2:#0E3E50; --petrol-ink:#EAF4F6; --petrol-muted:#A9C7CF;
+  --teal:#13877B; --teal-bright:#23A99A; --coral:#D9512E; --coral-ink:#FFFFFF; --gold:#E7B566; --gold-soft:#F8EDD6;
+  --wa:#1C9E50; --wa-head:#0B5C4E; --chat:#ECE5DD; --bubble:#D8F7C6; --bubble-ink:#122016; --in:#FFFFFF;
+  --violet:#6B42C9; --err:#B43030;
+  --f-display:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;
+  --f-body:"Inter","Segoe UI",system-ui,sans-serif;
+  --f-serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --shadow:0 30px 60px -30px rgba(8,43,58,.32);
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+svg{max-width:100%}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.025em;line-height:1.1}
+p{margin:0}
+.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left,0px));padding-right:max(20px, env(safe-area-inset-right,0px))}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.kicker::before{content:"";width:22px;height:2px;background:currentColor;border-radius:2px}
+:focus-visible{outline:3px solid var(--teal-bright);outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:12px;z-index:60;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:600}
+.skip:focus{left:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 16px/1 var(--f-display);padding:17px 26px;min-height:48px;border-radius:12px;border:0;cursor:pointer;text-decoration:none;transition:transform .15s, filter .15s}
+.btn-coral{background:var(--coral);color:var(--coral-ink);box-shadow:0 14px 28px -12px rgba(217,81,46,.7)}
+.btn-coral:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn-lg{padding:20px 32px;font-size:17.5px;border-radius:14px}
+.btn-ghost{background:transparent;color:inherit;border:1.5px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.75)}
+.btn-line{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn-line:hover{border-color:var(--teal);color:var(--teal)}
+
+/* ===== HERO ===== */
+.hero{background:var(--petrol);color:var(--petrol-ink);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 85% 20%, rgba(35,169,154,.30), transparent 60%),radial-gradient(500px 300px at 10% 110%, rgba(217,81,46,.14), transparent 60%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,#000 0%,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 85%);pointer-events:none}
+.hero > *{position:relative;z-index:1}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px}
+.brand{display:flex;align-items:center;gap:12px;font:800 20px/1 var(--f-display);letter-spacing:-.02em;color:#fff;text-decoration:none}
+.brand small{display:block;font:500 11.5px/1.3 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--petrol-muted);margin-top:4px}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:14.5px}
+.nav-links a{color:var(--petrol-ink);text-decoration:none;opacity:.85}
+.nav-links a:hover{opacity:1}
+.nav-links .btn{padding:12px 18px;font-size:14px;opacity:1;min-height:44px}
+@media (max-width:900px){.nav-links a:not(.btn){display:none}}
+@media (max-width:380px){.nav-links .btn{padding:11px 12px;font-size:13px}.brand{font-size:17px}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding-block:40px 96px}
+@media (max-width:940px){.hero-grid{grid-template-columns:1fr;gap:48px;padding-block:20px 72px}}
+.hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
+.hero h1{font-size:clamp(34px,5.6vw,64px);font-weight:800;color:#fff}
+.hero h1 .serif{color:var(--gold);font-size:1.08em}
+.hero .lede{font-size:clamp(17px,1.5vw,19px);color:var(--petrol-muted);max-width:48ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:flex-start}
+.cta-main{display:flex;flex-direction:column;gap:10px}
+.micro{font-size:13px;color:var(--petrol-muted);display:flex;align-items:center;gap:6px}
+.micro svg{color:var(--teal-bright)}
+.proof{display:flex;flex-wrap:wrap;gap:12px 32px;border-top:1px solid rgba(255,255,255,.12)}
+.proof div{display:flex;flex-direction:column;gap:2px;padding-top:16px}
+.proof b{font:700 22px/1.1 var(--f-display);color:#fff;letter-spacing:-.02em}
+.proof span{font-size:13px;color:var(--petrol-muted)}
+.stage{position:relative;min-height:440px;min-width:0}
+@media (max-width:940px){.stage{min-height:360px;max-width:520px;width:100%;margin:0 auto}}
+@media (max-width:420px){.stage{min-height:300px}}
+.card{position:absolute;width:min(420px,88%);aspect-ratio:1.586;max-width:100%;border-radius:22px;padding:clamp(16px,4vw,26px);color:#fff;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.card.front{left:6%;top:70px;transform:rotate(-6deg);background:linear-gradient(135deg,#0F6F74 0%,#0B4458 55%,#0A2E3D 100%);border:1px solid rgba(255,255,255,.18);z-index:2}
+.card.front::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(300px 180px at 90% 0%, rgba(255,255,255,.2), transparent 70%);pointer-events:none}
+.card.back{right:0;top:10px;transform:rotate(7deg);background:linear-gradient(135deg,#E9B86A,#C98A3D);opacity:.9;z-index:1}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card-top .t{font:700 15px/1.2 var(--f-display);letter-spacing:.02em}
+.card-top .t small{display:block;font:500 10.5px/1.4 var(--f-body);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-top:3px}
+.chip{width:44px;height:34px;border-radius:7px;background:linear-gradient(135deg,#F5D28E,#C99A4A);position:relative;flex:none}
+.chip::after{content:"";position:absolute;inset:7px 10px;border:1.5px solid rgba(80,50,10,.35);border-radius:3px}
+.card-num{font:500 clamp(13px,1.8vw,18px)/1 var(--f-mono);letter-spacing:.12em}
+.card-foot{display:flex;justify-content:space-between;gap:12px;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.card-foot b{display:block;font:600 13px/1.3 var(--f-display);letter-spacing:.02em;text-transform:none;margin-top:2px}
+.float{position:absolute;z-index:3;background:var(--surface);color:var(--ink);border-radius:14px;box-shadow:var(--shadow);padding:12px 16px;display:flex;align-items:center;gap:12px;font-size:14px}
+.float .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex:none}
+.float b{display:block;font:700 15px/1.2 var(--f-display)}
+.float span{color:var(--muted);font-size:12.5px}
+.float.f1{left:0;bottom:18px}
+.float.f1 .ic{background:var(--teal-bright);color:#fff}
+.float.f2{right:2%;top:250px}
+.float.f2 .ic{background:var(--soft);color:var(--teal)}
+@media (max-width:520px){.float.f2{display:none}.card.front{left:2%;top:50px}.float.f1{bottom:0}}
+@media (prefers-reduced-motion:no-preference){.card.front{animation:lift 7s ease-in-out infinite}@keyframes lift{50%{transform:rotate(-6deg) translateY(-8px)}}}
+
+/* ===== BENEFÍCIO PRINCIPAL ===== */
+.assure{margin-top:-44px;position:relative;z-index:2}
+.assure-in{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);list-style:none;margin:0;padding:0}
+.assure-in li{padding:22px;display:flex;gap:14px;align-items:flex-start;border-right:1px solid var(--line)}
+.assure-in li:last-child{border-right:0}
+.assure-in svg{flex:none;color:var(--teal)}
+.assure-in b{display:block;font:700 15px/1.3 var(--f-display);margin-bottom:3px}
+.assure-in p{font-size:13.5px;color:var(--muted);line-height:1.5}
+@media (max-width:940px){.assure-in{grid-template-columns:1fr 1fr}.assure-in li:nth-child(2){border-right:0}.assure-in li:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:560px){.assure-in{grid-template-columns:1fr}.assure-in li{border-right:0;border-bottom:1px solid var(--line)}.assure-in li:last-child{border-bottom:0}}
+
+section.sec{padding-block:96px}
+@media (max-width:640px){section.sec{padding-block:72px}}
+.sec-head{display:flex;flex-direction:column;gap:14px;max-width:640px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(28px,3.8vw,44px);font-weight:800}
+.sec-head h2 .serif{color:var(--teal)}
+.sec-head p{font-size:17px;color:var(--muted)}
+
+/* ===== BIA / SIMULAÇÃO ===== */
+.sim-grid{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:40px 72px;align-items:start}
+.sim-copy{min-width:0;display:flex;flex-direction:column;gap:28px}
+.sim-copy .sec-head{margin:0}
+.phone-col{position:sticky;top:20px;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+@media (max-width:1000px){.sim-grid{grid-template-columns:minmax(0,1fr)}.phone-col{position:static;order:2}.sim-copy{display:contents}.sim-copy .sec-head{order:1}.sim-copy .after{order:3}}
+
+.paths{display:flex;flex-direction:column;gap:12px}
+.path{display:flex;flex-direction:column;gap:8px}
+.path-lbl{font:700 11px/1 var(--f-mono);letter-spacing:.1em;color:var(--muted)}
+.path ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center}
+.path li{display:flex;align-items:center;gap:4px;font:600 13.5px/1 var(--f-display)}
+.path li span{padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.path li + li::before{content:"→";color:var(--muted);font-weight:500;padding-inline:2px}
+.path.old li span{color:var(--muted);background:transparent;border-style:dashed}
+.path.new li span{border-color:color-mix(in srgb,var(--teal) 40%,var(--line));color:var(--ink)}
+.path.new li.bia span{background:var(--teal);border-color:var(--teal);color:#fff}
+.path.new li.hum span{background:var(--coral);border-color:var(--coral);color:#fff}
+.does{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.does li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start}
+.does .ic{width:40px;height:40px;border-radius:12px;background:var(--soft);color:var(--teal);display:grid;place-items:center}
+.does b{display:block;font:700 16px/1.3 var(--f-display)}
+.does p{font-size:14.5px;color:var(--muted)}
+.rules{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--coral);border-radius:16px;padding:20px 22px}
+.rules h3{font-size:16px;font-weight:700;margin-bottom:12px}
+.rules ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+@media (max-width:560px){.rules ul{grid-template-columns:1fr}}
+.rules li{font-size:14px;color:var(--muted);padding-left:18px;position:relative;line-height:1.45}
+.rules li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.after{display:flex;flex-direction:column;gap:24px;min-width:0}
+
+/* celular */
+.phone{width:min(400px,100%);border-radius:46px;background:#0B0F14;padding:12px;box-shadow:0 50px 90px -40px rgba(8,43,58,.6), inset 0 0 0 2px #2A333D}
+.screen{border-radius:36px;overflow:hidden;background:var(--chat);display:flex;flex-direction:column;height:clamp(600px,88vh,740px)}
+@media (max-width:420px){.phone{padding:7px;border-radius:34px}.screen{border-radius:28px;height:clamp(580px,88vh,700px)}.qr button{font-size:13px;padding:9px 12px}}
+.wa-head{background:var(--petrol-2);color:#fff;display:flex;align-items:center;gap:10px;padding:26px 14px 10px}
+.wa-head .av{width:40px;height:40px;border-radius:50%;background:var(--teal-bright);display:grid;place-items:center;flex:none}
+.wa-head .nm{flex:1;min-width:0}
+.wa-head b{font:600 15.5px/1.2 var(--f-body);display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden}
+.wa-head b small{font:700 9.5px/1 var(--f-mono);letter-spacing:.08em;background:rgba(255,255,255,.16);padding:3px 5px;border-radius:4px}
+.wa-head .st{font-size:12.5px;opacity:.85;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.restart{background:rgba(255,255,255,.15);color:#fff;border:0;border-radius:9px;padding:9px 11px;min-height:38px;font:600 12.5px/1 var(--f-body);cursor:pointer;flex:none}
+.restart:hover{background:rgba(255,255,255,.27)}
+.sim-progress{background:var(--petrol);color:#E6F5F1;padding:8px 14px 10px;display:flex;flex-direction:column;gap:6px}
+.sp-lbl{font:600 11.5px/1 var(--f-body);letter-spacing:.02em;opacity:.9}
+.sim-progress ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.sim-progress li{font:600 10.5px/1.2 var(--f-body);display:flex;flex-direction:column;gap:5px;opacity:.6;min-width:0}
+.sim-progress li::before{content:"";height:4px;border-radius:4px;background:rgba(255,255,255,.25)}
+.sim-progress li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sim-progress li.done,.sim-progress li.now{opacity:1}
+@media (max-width:370px){.rs-x{display:none}.sim-progress li{font-size:9.5px}.wa-head b small{display:none}}
+.sim-progress li.done::before{background:var(--teal-bright)}
+.sim-progress li.now::before{background:linear-gradient(90deg,var(--teal-bright) 55%,rgba(255,255,255,.25) 55%)}
+@media (prefers-reduced-motion:no-preference){.sim-progress li::before{transition:background .4s}}
+.chat-wrap{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}
+.new-msg{white-space:nowrap;position:absolute;left:50%;bottom:10px;transform:translateX(-50%);z-index:2;font:600 12.5px/1 var(--f-body);background:var(--petrol);color:#fff;border:0;border-radius:999px;padding:10px 14px;min-height:38px;box-shadow:0 8px 18px -8px rgba(8,43,58,.6);cursor:pointer}
+.wa-body{position:relative;flex:1;min-height:0;overflow-y:auto;padding:12px 10px 8px;display:flex;flex-direction:column;gap:6px;background-image:radial-gradient(rgba(13,27,41,.06) 1px, transparent 1px);background-size:14px 14px;overscroll-behavior:contain}
+.day{align-self:center;font-size:11px;background:var(--in);color:var(--muted);padding:4px 10px;border-radius:8px;margin:2px 0 6px}
+.sys{align-self:center;text-align:center;font-size:12px;background:#F6E7C7;color:var(--ink);padding:7px 11px;border-radius:9px;max-width:92%;margin:4px 0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.sys.hand{background:#F7D9CF}
+.sys.info{background:transparent;color:var(--muted);font-size:11.5px;padding:2px 8px}
+.sys button{font:600 12px/1 var(--f-body);background:var(--surface);color:var(--ink);border:1px solid rgba(13,27,41,.18);border-radius:8px;padding:8px 10px;min-height:34px;cursor:pointer}
+.sys button:hover{border-color:var(--teal);color:var(--teal)}
+.b{max-width:86%;border-radius:12px;padding:7px 10px 5px;font-size:14.2px;line-height:1.45;white-space:pre-wrap;word-break:break-word;box-shadow:0 1px 1px rgba(0,0,0,.1)}
+.b.in{align-self:flex-start;background:var(--in);color:var(--ink);border-top-left-radius:3px}
+.b.out{align-self:flex-end;background:var(--bubble);color:var(--bubble-ink);border-top-right-radius:3px}
+.b .from{display:block;font:600 12px/1.3 var(--f-body);margin-bottom:2px;color:var(--teal)}
+.b .from.cor{color:var(--coral)}
+.b .from.jul{color:var(--violet)}
+.b .meta{display:block;text-align:right;font-size:10.5px;opacity:.6;margin-top:2px}
+.b.cont{margin-top:-3px}
+.b.in.cont{border-top-left-radius:12px}
+.b.out.cont{border-top-right-radius:12px}
+.b.in:not(.cont){margin-top:4px}
+.b.wide{max-width:97%;width:97%;white-space:normal}
+.b strong{font-weight:700}
+.b .wow{display:block;font:700 15px/1.3 var(--f-display);margin-bottom:4px;color:var(--teal)}
+@media (prefers-reduced-motion:no-preference){.b,.sys{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}}}
+.typing{align-self:flex-start;background:var(--in);border-radius:12px;border-top-left-radius:3px;padding:12px 14px;display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.5}
+@media (prefers-reduced-motion:no-preference){.typing i{animation:dot 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}@keyframes dot{40%{opacity:1;transform:translateY(-3px)}}}
+
+/* análise de perfil */
+.analysis{display:flex;flex-direction:column;gap:7px}
+.analysis .ah{font:700 11px/1 var(--f-mono);letter-spacing:.1em;color:var(--teal)}
+.analysis ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.analysis li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted)}
+.analysis li i{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-style:normal;font-size:11px;color:#fff}
+.analysis li.ok{color:var(--ink)}
+.analysis li.ok i{background:var(--teal);border-color:var(--teal)}
+.analysis li.ok i::after{content:"✓"}
+
+/* comparação e cards de plano */
+.demo-note{display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:var(--gold-soft);border-radius:9px;padding:8px 10px;margin:2px 0 10px}
+.demo-note b{font:700 10px/1.3 var(--f-mono);letter-spacing:.1em;white-space:nowrap;padding-top:1px}
+.demo-note span{font-size:11.5px;line-height:1.4;color:var(--ink)}
+.plans{display:flex;flex-direction:column;gap:10px}
+.plans.carousel{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;padding:2px 2px 8px;overscroll-behavior-x:contain}
+.plans.carousel .plan{flex:0 0 86%;scroll-snap-align:start}
+.swipe{font-size:11.5px;color:var(--muted);margin:0 0 6px;display:flex;align-items:center;gap:6px}
+.plan{border:1.5px solid var(--line);border-radius:13px;padding:13px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.plan.rec{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.plan.picked{border-color:var(--teal);background:color-mix(in srgb,var(--soft) 55%,var(--surface))}
+.pos{font:700 10px/1 var(--f-mono);letter-spacing:.1em;color:var(--teal)}
+.pos.eco{color:#2C6A8A}.pos.top{color:#9A6417}
+.plan-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.plan-top strong{font:700 16px/1.2 var(--f-display)}
+.badge{font:700 9.5px/1 var(--f-mono);letter-spacing:.08em;padding:5px 7px;border-radius:5px;background:var(--teal);color:#fff}
+.tagline{font-size:13px;color:var(--muted);line-height:1.4}
+.price{display:flex;align-items:baseline;justify-content:space-between;gap:2px 8px;flex-wrap:wrap}
+.price b{font:700 17px/1.15 var(--f-mono);font-variant-numeric:tabular-nums}
+.price span{font-size:11.5px;color:var(--muted)}
+.benefits{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.benefits li{font-size:12.8px;display:flex;gap:7px;line-height:1.35}
+.benefits li::before{content:"✓";color:var(--teal);font-weight:700}
+.fit{font-size:12.5px;color:var(--muted);line-height:1.4}
+.fit b{color:var(--ink);font-weight:600}
+.attrs{display:flex;flex-wrap:wrap;gap:4px;margin:0;padding:0;list-style:none}
+.attrs li{font-size:11.5px;padding:3px 7px;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
+.why{font-size:12.8px;line-height:1.45;background:var(--soft);border-radius:9px;padding:9px 10px}
+.why b{color:var(--teal);display:block;font-size:11.5px;letter-spacing:.02em;margin-bottom:2px}
+.plan details,.summary details{font-size:12.5px}
+.plan summary,.summary summary{cursor:pointer;color:var(--teal);font-weight:600;padding:4px 0}
+table.bands{width:100%;border-collapse:collapse;margin-top:4px;font-variant-numeric:tabular-nums;font-size:12.5px}
+table.bands td{padding:4px 0;border-bottom:1px dashed var(--line)}
+table.bands td:last-child{text-align:right;font-family:var(--f-mono)}
+.plan > button,.wa-card button,.picker button.go{font:600 13.5px/1.1 var(--f-display);padding:12px;min-height:44px;border-radius:10px;border:0;background:var(--wa-head);color:#fff;cursor:pointer}
+.plan > button:hover{filter:brightness(1.12)}
+.plan > button:disabled{opacity:.45;cursor:default;filter:none}
+.plan > button:disabled[aria-pressed="true"]{opacity:1}
+.plan > button[aria-pressed="true"]{background:var(--teal)}
+.summary{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:13px;display:flex;flex-direction:column;gap:8px}
+.summary .tot{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--line);padding-top:8px;flex-wrap:wrap}
+.summary .tot b{font:700 19px/1 var(--f-mono)}
+.summary .tot span{font-size:12px;color:var(--muted)}
+.tbc{font-size:12px;color:var(--muted);line-height:1.45}
+.tbc b{color:var(--ink)}
+
+/* seletor de faixas */
+.picker{display:flex;flex-direction:column;gap:8px}
+.picker .ph{font:700 11px/1 var(--f-mono);letter-spacing:.1em;color:var(--teal)}
+.prow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;border-bottom:1px dashed var(--line)}
+.prow span{font:500 13.5px/1 var(--f-mono)}
+.step{display:flex;align-items:center;gap:4px}
+.step button{width:40px;height:40px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:19px;line-height:1;cursor:pointer}
+.step button:hover{border-color:var(--teal);color:var(--teal)}
+.step output{min-width:30px;text-align:center;font:600 16px/1 var(--f-mono);font-variant-numeric:tabular-nums}
+.ptot{display:flex;justify-content:space-between;align-items:center;font:600 13.5px/1 var(--f-display);background:var(--soft);border-radius:9px;padding:10px 12px}
+.ptot b{font:700 18px/1 var(--f-mono);color:var(--teal)}
+.picker button.go:disabled{opacity:.45;cursor:default}
+
+/* continuação no WhatsApp */
+.wa-card{display:flex;flex-direction:column;gap:10px}
+.wa-card .wh{display:flex;align-items:center;gap:8px;font:700 14.5px/1.2 var(--f-display)}
+.wa-card .wh i{width:28px;height:28px;border-radius:50%;background:var(--wa);display:grid;place-items:center;color:#fff;flex:none}
+.cmp-title{font-size:14.2px;margin:0 0 8px}
+.fine-demo{font-size:11px;color:var(--muted)}
+.wa-msg{background:var(--bubble);color:var(--bubble-ink);border-radius:10px;padding:10px 11px;font-size:13px;white-space:pre-wrap;line-height:1.45}
+.wa-card .wnote{font-size:11.5px;color:var(--muted);line-height:1.45;background:var(--gold-soft);border-radius:8px;padding:8px 10px}
+.wa-card button{background:var(--wa)}
+.wa-card .wa-open{display:flex;align-items:center;justify-content:center;gap:8px;font:600 14.5px/1.1 var(--f-display);padding:13px;min-height:48px;border-radius:10px;background:var(--wa);color:#fff;text-decoration:none}
+.wa-card .wa-open:hover{filter:brightness(1.07)}
+.wa-card button.ghost{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+
+.qr{display:flex;flex-wrap:wrap;gap:5px;padding:6px 10px 2px;justify-content:flex-end;max-height:31%;overflow-y:auto;border-top:1px solid rgba(13,27,41,.06)}
+.qr:empty{display:none}
+.qr button{font:600 13.5px/1.2 var(--f-body);padding:9px 13px;min-height:44px;border-radius:22px;border:1.5px solid var(--wa-head);background:var(--in);color:var(--ink);cursor:pointer;text-align:left}
+.qr button:hover{background:var(--wa-head);color:#fff}
+.qr button.primary{background:var(--coral);border-color:var(--coral);color:#fff}
+.qr button.primary:hover{filter:brightness(1.06)}
+.wa-input{display:flex;gap:8px;align-items:center;padding:8px 10px 14px}
+.wa-input input{flex:1;min-width:0;font:inherit;font-size:16px;border:1px solid transparent;border-radius:22px;padding:11px 16px;min-height:46px;background:var(--in);color:var(--ink)}
+.wa-input input:focus{outline:2px solid var(--teal-bright)}
+.wa-input input:disabled{background:#F1EEE9;color:var(--muted)}
+.wa-input button{width:46px;height:46px;border-radius:50%;background:var(--wa-head);border:0;display:grid;place-items:center;color:#fff;cursor:pointer;flex:none}
+.wa-input button:disabled{background:#8FA9A3;cursor:default}
+.phone-tools{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;width:min(400px,100%)}
+.broker-btn{display:inline-flex;align-items:center;gap:8px;font:600 13.5px/1 var(--f-display);color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:10px 14px;min-height:44px;cursor:pointer}
+.broker-btn:hover{border-color:var(--teal);color:var(--teal)}
+.broker-btn .pill{font:700 11px/1 var(--f-mono);background:var(--soft);color:var(--teal);padding:4px 7px;border-radius:999px}
+@media (prefers-reduced-motion:no-preference){.broker-btn .pill.bump{animation:bump .5s ease}@keyframes bump{40%{transform:scale(1.18)}}}
+.phone-cap{font-size:12.5px;color:var(--muted);text-align:center;max-width:44ch;margin:0}
+
+/* ===== GAVETA: VISÃO DO CORRETOR ===== */
+dialog.drawer{margin:0 0 0 auto;height:100%;max-height:100%;width:min(460px,100%);max-width:100%;border:0;padding:0;background:var(--bg);color:var(--ink);box-shadow:-30px 0 60px -30px rgba(8,43,58,.45);display:flex;flex-direction:column}
+dialog.drawer:not([open]){display:none}
+dialog.drawer::backdrop{background:rgba(8,43,58,.45)}
+@media (prefers-reduced-motion:no-preference){dialog.drawer[open]{animation:slide .28s ease-out}@keyframes slide{from{transform:translateX(40px);opacity:0}}}
+.dw-head{background:var(--petrol);color:var(--petrol-ink);padding:calc(20px + env(safe-area-inset-top,0px)) 20px 18px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.dw-head h2{font-size:22px;color:#fff;margin-top:8px}
+.dw-head p{font-size:13px;color:var(--petrol-muted);margin-top:3px}
+.demo-tag{display:inline-block;font:700 10px/1 var(--f-mono);letter-spacing:.1em;padding:5px 7px;border-radius:5px;background:var(--gold);color:var(--petrol)}
+.dw-close{width:44px;height:44px;border-radius:12px;border:0;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;display:grid;place-items:center;flex:none}
+.dw-close:hover{background:rgba(255,255,255,.22)}
+.dw-body{flex:1;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:16px}
+.dw-foot{font-size:12px;color:var(--muted);padding:12px 20px calc(14px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--surface)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.box h3{font:700 11px/1 var(--f-mono);letter-spacing:.1em;color:var(--muted);margin-bottom:12px}
+.lead-id{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:start}
+@media (max-width:360px){.lead-id{grid-template-columns:minmax(0,1fr)}.lead-id .score{align-items:flex-start}}
+.lead-id strong{display:block;font:700 20px/1.2 var(--f-display);letter-spacing:-.01em}
+.lead-id small{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+.qual{display:inline-flex;align-items:center;gap:6px;font:600 12.5px/1 var(--f-display);padding:7px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line);margin-top:10px}
+.qual::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.qual.hi::before{background:var(--teal-bright)}.qual.mid::before{background:var(--gold)}
+.score{display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:120px}
+.score b{font:700 34px/1 var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.score b small{font-size:14px;color:var(--muted);font-weight:500}
+.bar{height:7px;width:120px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);border-radius:inherit}
+@media (prefers-reduced-motion:no-preference){.bar i{transition:width .5s ease}}
+.prio{font:700 10px/1 var(--f-mono);letter-spacing:.08em;padding:5px 7px;border-radius:5px}
+.prio.hi{background:var(--coral);color:#fff}.prio.mid{background:var(--gold-soft);color:var(--ink)}.prio.lo{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.steps-h{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.steps-h li{display:flex;flex-direction:column;gap:6px;font:600 11px/1.2 var(--f-body);color:var(--muted);min-width:0;overflow-wrap:break-word}
+.steps-h li::before{content:"";height:5px;border-radius:5px;background:var(--line)}
+.steps-h li.done{color:var(--ink)}.steps-h li.done::before{background:var(--teal-bright)}
+.steps-h li.now{color:var(--teal)}.steps-h li.now::before{background:var(--teal)}
+.steps-h.intent{grid-template-columns:repeat(4,1fr)}
+@media (max-width:420px){.steps-h,.steps-h.intent{grid-template-columns:minmax(0,1fr);gap:7px}.steps-h li{flex-direction:row;align-items:center;gap:10px;font-size:12.5px}.steps-h li::before{width:24px;flex:none}}
+.steps-h.intent li.now{color:var(--coral)}.steps-h.intent li.now::before{background:var(--coral)}
+.kv{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:13.5px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;font-weight:600;word-break:break-word}
+.kv dd.empty{color:var(--muted);font-weight:400}
+.next{border-left:4px solid var(--coral)}
+.next p{font:600 15px/1.45 var(--f-display)}
+.next small{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}
+.signals{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+.signals li{display:flex;justify-content:space-between;gap:8px;color:var(--muted)}
+.signals li span::before{content:"○";margin-right:8px}
+.signals li.on{color:var(--ink)}
+.signals li.on span::before{content:"✓";color:var(--teal);font-weight:700}
+.signals li b{font-family:var(--f-mono);font-weight:600;color:var(--muted)}
+.signals li.on b{color:var(--teal)}
+.ops-flow{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center}
+.ops-flow li{font:600 12px/1 var(--f-display);padding:7px 9px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.ops-flow li.bia{background:var(--teal);border-color:var(--teal);color:#fff}
+.ops-flow li.hum{background:var(--coral);border-color:var(--coral);color:#fff}
+.ops-rules{margin:0;padding:0 0 0 18px;font-size:13px;color:var(--muted);display:grid;gap:4px}
+
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:10px;background:var(--coral);color:#fff;border:0;border-radius:999px;padding:14px 18px 14px 14px;min-height:52px;font:600 14.5px/1 var(--f-display);cursor:pointer;box-shadow:0 16px 30px -12px rgba(217,81,46,.7)}
+.fab:hover{filter:brightness(1.05)}
+@media (max-width:520px){.fab span{display:none}.fab{padding:15px}}
+
+/* ===== SEÇÕES DE APOIO ===== */
+.how{background:var(--surface);border-block:1px solid var(--line)}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;list-style:none;margin:0;padding:0}
+.timeline::before{content:"";position:absolute;top:27px;left:56px;right:56px;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px)}
+@media (max-width:820px){.timeline{grid-template-columns:1fr}.timeline::before{display:none}}
+.tl{display:flex;flex-direction:column;gap:12px;position:relative}
+.tl .n{width:56px;height:56px;border-radius:16px;background:var(--petrol);color:#fff;display:grid;place-items:center;font:800 22px/1 var(--f-display)}
+.tl:nth-child(2) .n{background:var(--teal)}
+.tl:nth-child(3) .n{background:var(--coral)}
+.tl h3{font-size:21px;font-weight:700}
+.tl p{color:var(--muted);font-size:15.5px;max-width:34ch}
+.offer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.offer{grid-template-columns:minmax(0,1fr)}}
+.offer article{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.offer article.mid{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal), var(--shadow)}
+.offer h3{font-size:22px}
+.offer .benefits li{font-size:14.5px}
+.offer .fit{font-size:14px}
+.offer .btn{margin-top:auto;align-self:flex-start;padding:13px 18px;font-size:14.5px}
+.offer-note{font-size:13px;color:var(--muted);margin-top:18px}
+.choices{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:980px){.choices{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.choice .ic{width:46px;height:46px;border-radius:14px;background:var(--soft);color:var(--teal);display:grid;place-items:center}
+.choice h3{font-size:19px}
+.choice p{color:var(--muted);font-size:15px}
+.scale{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.scale span{font:500 12px/1 var(--f-mono);padding:7px 10px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+.who-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width:980px){.who-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.who-grid{grid-template-columns:minmax(0,1fr)}}
+.who-grid article{border-top:3px solid var(--teal);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.who-grid article.c{border-top-color:var(--coral)}
+.who-grid h3{font-size:18px}
+.who-grid p{font-size:14.5px;color:var(--muted)}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+@media (max-width:820px){.faq-grid{grid-template-columns:1fr;gap:16px}}
+.faq-grid .sec-head{margin:0}
+.faq details{border-bottom:1px solid var(--line);padding-block:16px}
+.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:18px;font:700 17px/1.35 var(--f-display);letter-spacing:-.01em;min-height:32px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background-color:var(--soft);background-image:linear-gradient(var(--teal),var(--teal)),linear-gradient(var(--teal),var(--teal));background-repeat:no-repeat;background-position:center;background-size:12px 2px,2px 12px}
+@media (prefers-reduced-motion:no-preference){.faq summary::after{transition:transform .2s}}
+.faq details[open] summary::after{background-size:12px 2px,0 0;transform:rotate(180deg)}
+.faq details p{color:var(--muted);margin-top:10px;max-width:62ch;font-size:15.5px}
+.final{background:var(--petrol);color:#fff;border-radius:28px;padding:64px 56px;display:grid;grid-template-columns:1.3fr auto;gap:32px;align-items:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at 100% 0%, rgba(35,169,154,.35), transparent 60%);pointer-events:none}
+.final > *{position:relative}
+.final h2{font-size:clamp(26px,3.6vw,42px);font-weight:800}
+.final h2 .serif{color:var(--gold)}
+.final p{color:var(--petrol-muted);margin-top:12px;font-size:17px}
+.final .cta-main{align-items:flex-start}
+@media (max-width:820px){.final{grid-template-columns:1fr;padding:44px 24px}}
+footer{padding-block:48px 110px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#simulacao">Pular para a simulação</a>
+
+<header class="hero">
+  <div class="wrap nav">
+    <a class="brand" href="#topo" id="topo" aria-label="Abrigo Saúde, voltar ao início">
+      <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="11" fill="#23A99A"/><path d="M9 20 19 10l10 10v9H9z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M19 16.5v9M14.5 21h9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span>Abrigo Saúde<small>Planos empresariais</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#simulacao">A Bia</a>
+      <a href="#como">Como funciona</a>
+      <a href="#opcoes">Opções</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a class="btn btn-coral" href="#simulacao" data-start>Simular cotação</a>
+    </nav>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kicker" style="color:var(--gold)">Para MEI, ME e pequenas empresas</span>
+      <h1>O plano de saúde que sua equipe <span class="serif">merece</span>, no CNPJ da empresa.</h1>
+      <p class="lede">Compare opções para sua empresa e veja uma simulação em poucos minutos, sem compromisso.</p>
+      <div class="hero-cta">
+        <div class="cta-main">
+          <a class="btn btn-coral btn-lg" href="#simulacao" data-start>
+            Simular minha cotação
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="micro"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Leva cerca de 2 minutos · sem compromisso</span>
+        </div>
+        <a class="btn btn-ghost" href="#como">Como funciona</a>
+      </div>
+      <div class="proof">
+        <div><b>~2 min</b><span>para a primeira comparação</span></div>
+        <div><b>R$ 0</b><span>para simular e comparar</span></div>
+        <div><b>Corretor</b><span>quando você precisar</span></div>
+      </div>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <div class="card back"></div>
+      <div class="card front">
+        <div class="card-top"><div class="t">ABRIGO SAÚDE<small>Plano empresarial</small></div><div class="chip"></div></div>
+        <div class="card-num">TITULAR · DEPENDENTES</div>
+        <div class="card-foot"><div>Empresa<b>Empresa demonstrativa</b></div><div>Cobertura<b>Nacional · Apto</b></div></div>
+      </div>
+      <div class="float f2">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div>
+        <div><b>3 opções</b><span>para comparar</span></div>
+      </div>
+      <div class="float f1">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg></div>
+        <div><b>Bia</b><span>Sua simulação está pronta</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap assure">
+    <ul class="assure-in" aria-label="Por que simular com a Abrigo">
+      <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg><div><b>Começa com uma conversa</b><p>Nada de formulário longo. A Bia pergunta só o necessário.</p></div></li>
+      <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/></svg><div><b>Opções para o seu perfil</b><p>Comparação e recomendação explicadas, não só preço.</p></div></li>
+      <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2 .8 3 2.7 3 6"/></svg><div><b>Corretor quando precisar</b><p>Ele recebe tudo o que você contou. Você não repete nada.</p></div></li>
+      <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><div><b>Sem compromisso</b><p>Rede e valores finais são confirmados com a operadora.</p></div></li>
+    </ul>
+  </div>
+
+  <!-- ===== BIA / SIMULAÇÃO ===== -->
+  <section class="sec" id="simulacao" aria-labelledby="sim-title">
+    <div class="wrap sim-grid">
+      <div class="sim-copy">
+        <div class="sec-head">
+          <span class="kicker">Atendimento com a Bia</span>
+          <h2 id="sim-title">Sua cotação começa <span class="serif">com uma conversa</span>.</h2>
+          <p>A Bia entende o perfil da sua empresa, organiza as informações e ajuda você a encontrar o caminho mais adequado antes de falar com um corretor.</p>
+        </div>
+        <div class="after">
+          <ul class="does">
+            <li><div class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><div><b>Entende o perfil</b><p>Cidade, número de pessoas, idades e a situação atual da empresa.</p></div></li>
+            <li><div class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><div><b>Compara e recomenda</b><p>Mostra três caminhos e explica qual faz mais sentido para o que você prioriza.</p></div></li>
+            <li><div class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h3v12l-4-3H9a2 2 0 0 1-2-2v-1"/><path d="M3 4h11a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7l-4 3z"/></svg></div><div><b>Sabe a hora do corretor</b><p>Rede específica, plano atual, grupo grande ou decisão de contratar: ela transfere com o contexto.</p></div></li>
+          </ul>
+          
+        </div>
+      </div>
+
+      <div class="phone-col">
+        <div class="phone">
+          <div class="screen">
+            <div class="wa-head">
+              <div class="av" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 38 38"><path d="M9 20 19 10l10 10v9H9z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M19 16.5v9M14.5 21h9" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>
+              <div class="nm"><b>Bia · Abrigo Saúde <small>DEMO</small></b><span class="st" id="chat-status" aria-live="polite">Assistente virtual · no site</span></div>
+              <button class="restart" type="button" id="chat-restart" aria-label="Nova simulação">Nova<span class="rs-x"> simulação</span></button>
+            </div>
+            <div class="sim-progress" aria-label="Progresso da simulação">
+              <span class="sp-lbl" id="sp-label">Pronta para começar</span>
+              <ol id="sp-steps"></ol>
+            </div>
+            <div class="chat-wrap"><div class="wa-body" id="chat-log" role="log" aria-live="polite" aria-label="Conversa com a Bia"></div><button class="new-msg" type="button" id="chat-new" hidden>Nova mensagem ↓</button></div>
+            <div class="qr" id="chat-options" role="group" aria-label="Respostas sugeridas"></div>
+            <form class="wa-input" id="chat-form" autocomplete="off">
+              <input id="chat-input" type="text" aria-label="Digite sua mensagem" placeholder="Aguarde…" disabled>
+              <button type="submit" id="chat-send" aria-label="Enviar mensagem" disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20.5 21 12 3 3.5 3 10l12 2-12 2z"/></svg></button>
+            </form>
+          </div>
+        </div>
+        <div class="phone-tools">
+          <button class="broker-btn" type="button" id="broker-open" aria-haspopup="dialog" aria-controls="broker">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h5"/></svg>
+            Visão do corretor <span class="pill" id="broker-pill">0</span>
+          </button>
+        </div>
+        <p class="phone-cap">Atendimento no site, com o mesmo roteiro pronto para o WhatsApp Business. Simulação demonstrativa: valores ilustrativos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec how" id="como" aria-labelledby="como-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Como funciona</span>
+        <h2 id="como-title">Da conversa à carteirinha, <span class="serif">sem burocracia</span></h2>
+      </div>
+      <ol class="timeline">
+        <li class="tl"><div class="n" aria-hidden="true">1</div><h3>Você conversa com a Bia</h3><p>Cidade, número de pessoas, idades e situação atual. Nenhum documento nesta etapa.</p></li>
+        <li class="tl"><div class="n" aria-hidden="true">2</div><h3>Compara e recebe uma recomendação</h3><p>Três caminhos com valores demonstrativos e a explicação do que combina com sua prioridade.</p></li>
+        <li class="tl"><div class="n" aria-hidden="true">3</div><h3>Um corretor confirma</h3><p>Ele valida rede, regras e valores com a operadora e acompanha a proposta até a carteirinha.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="opcoes" aria-labelledby="opcoes-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Opções de plano</span>
+        <h2 id="opcoes-title">Três caminhos para <span class="serif">começar a comparar</span></h2>
+        <p>A Bia usa estes três perfis como ponto de partida e ajusta a recomendação ao que você prioriza.</p>
+      </div>
+      <div class="offer">
+        <article><span class="pos eco">MAIS ECONÔMICO</span><h3>Essencial</h3><p class="tagline">Para proteger a equipe com a menor mensalidade.</p><ul class="benefits"><li>Rede regional</li><li>Enfermaria em internações</li><li>Coparticipação, que reduz a mensalidade</li></ul><p class="fit"><b>Indicado para</b> times que usam pouco o plano e priorizam custo.</p><a class="btn btn-line" href="#simulacao" data-start data-plan="essencial">Simular este caminho</a></article>
+        <article class="mid"><span class="pos">MELHOR EQUILÍBRIO</span><h3>Equilíbrio</h3><p class="tagline">Para empresas que querem combinar custo e cobertura.</p><ul class="benefits"><li>Rede ampla no estado</li><li>Apartamento em internações</li><li>Coparticipação parcial</li></ul><p class="fit"><b>Indicado para</b> quem quer mais conforto sem a mensalidade mais alta.</p><a class="btn btn-coral" href="#simulacao" data-start data-plan="equilibrio">Simular este caminho</a></article>
+        <article><span class="pos top">MAIS COMPLETO</span><h3>Completo</h3><p class="tagline">Para quem quer a rede mais ampla e nenhuma cobrança por uso.</p><ul class="benefits"><li>Rede nacional</li><li>Apartamento em internações</li><li>Sem coparticipação</li></ul><p class="fit"><b>Indicado para</b> equipes que viajam ou usam o plano com frequência.</p><a class="btn btn-line" href="#simulacao" data-start data-plan="completo">Simular este caminho</a></article>
+      </div>
+      <p class="offer-note">Perfis demonstrativos. Produtos, rede e valores reais dependem da operadora, da cidade e do perfil da empresa.</p>
+    </div>
+  </section>
+
+  <section class="sec how" id="preco" aria-labelledby="preco-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">O que muda o preço</span>
+        <h2 id="preco-title">Quatro fatores que <span class="serif">definem o valor</span></h2>
+        <p>Por isso a Bia pergunta sobre eles. O valor final depende também da operadora e da cidade.</p>
+      </div>
+      <div class="choices">
+        <div class="choice"><div class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 11v6M14 14h6"/></svg></div><h3>Idades</h3><p>O preço de cada pessoa segue faixas etárias padronizadas pela ANS.</p><div class="scale"><span>0–18</span><span>…</span><span>59+</span></div></div>
+        <div class="choice"><div class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Abrangência</h3><p>Onde a rede credenciada atende: região, estado ou país.</p><div class="scale"><span>regional</span><span>estadual</span><span>nacional</span></div></div>
+        <div class="choice"><div class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V8M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="2"/></svg></div><h3>Acomodação</h3><p>Quarto coletivo ou individual em caso de internação.</p><div class="scale"><span>enfermaria</span><span>apartamento</span></div></div>
+        <div class="choice"><div class="ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2"/></svg></div><h3>Coparticipação</h3><p>Mensalidade menor com um valor por uso, ou mensalidade cheia sem cobrança extra.</p><div class="scale"><span>com</span><span>parcial</span><span>sem</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="para-quem" aria-labelledby="quem-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Para quem é</span>
+        <h2 id="quem-title">Feito para <span class="serif">pequenas empresas</span></h2>
+      </div>
+      <div class="who-grid">
+        <article><h3>MEI</h3><p>Plano coletivo empresarial em determinadas condições, que o corretor confirma pelo CNPJ.</p></article>
+        <article><h3>ME e EPP</h3><p>Sócios, funcionários e dependentes no mesmo contrato, com valor por faixa etária.</p></article>
+        <article><h3>Quem já tem plano</h3><p>Compare com o plano atual e avalie com o corretor a troca e as carências.</p></article>
+        <article class="c"><h3>Grupos com 30+ vidas</h3><p>A Bia organiza os dados e um corretor conduz a negociação com as operadoras.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="duvidas" aria-labelledby="duvidas-title" style="padding-top:24px">
+    <div class="wrap faq-grid">
+      <div class="sec-head">
+        <span class="kicker">Dúvidas frequentes</span>
+        <h2 id="duvidas-title">Antes de <span class="serif">simular</span></h2>
+        <p>Quando a resposta depende da operadora ou do contrato, o corretor confirma para o seu caso.</p>
+      </div>
+      <div class="faq">
+        <details><summary>Quem pode contratar?</summary><p>Empresas com CNPJ ativo, incluindo MEI, ME e EPP, para sócios, funcionários e dependentes, conforme as regras de cada operadora.</p></details>
+        <details><summary>MEI pode contratar?</summary><p>Em determinadas condições, sim. As operadoras costumam pedir CNPJ ativo há um tempo mínimo e um número mínimo de beneficiários. O corretor confirma as opções disponíveis.</p></details>
+        <details><summary>Quantas pessoas podem entrar?</summary><p>Depende da operadora. Muitas aceitam a partir de 2 vidas e algumas aceitam 1 titular. Para 30 vidas ou mais, as condições costumam ser negociadas.</p></details>
+        <details><summary>Posso incluir dependentes?</summary><p>Em geral, sim. Cônjuge e filhos costumam ser aceitos; o grau de parentesco e os documentos seguem as regras do contrato.</p></details>
+        <details><summary>Já tenho plano. Posso trocar?</summary><p>Sim. O corretor compara o plano atual com as novas opções e avalia prazos, rede e custos da troca.</p></details>
+        <details><summary>Existe carência?</summary><p>Em contratos empresariais com até 29 beneficiários, pode haver carência. Com 30 ou mais, existem hipóteses de isenção conforme as regras de ingresso. Os prazos dependem do contrato.</p></details>
+        <details><summary>Existe portabilidade?</summary><p>Pode ser possível aproveitar carências já cumpridas, pela portabilidade ou por condições da operadora. Depende do plano atual, do tempo de contrato e das regras vigentes.</p></details>
+        <details><summary>O preço depende da idade?</summary><p>Sim. O valor de cada pessoa segue faixas etárias padronizadas pela ANS.</p></details>
+        <details><summary>O preço depende da cidade?</summary><p>Sim. A rede credenciada e os produtos disponíveis variam por região, e isso influencia o valor.</p></details>
+        <details><summary>Posso escolher hospital?</summary><p>Você escolhe um plano cuja rede inclua o hospital desejado. A rede disponível depende do produto e da região, e é confirmada com a operadora.</p></details>
+        <details><summary>Existe coparticipação?</summary><p>Há planos com e sem coparticipação. Com ela, a mensalidade é menor e se paga uma parte do valor de consultas e exames.</p></details>
+        <details><summary>Como funciona o reajuste?</summary><p>Contratos coletivos têm regras específicas de reajuste, que variam conforme o tamanho do grupo e o contrato. O valor também muda quando alguém troca de faixa etária.</p></details>
+        <details><summary>Quanto tempo leva para contratar?</summary><p>Varia por operadora. Com a documentação completa, o processo costuma levar alguns dias até a ativação.</p></details>
+        <details><summary>A simulação é gratuita?</summary><p>Sim. A simulação e a orientação do corretor não têm custo nem compromisso.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="final" aria-labelledby="final-title">
+      <div>
+        <h2 id="final-title">Sua equipe protegida <span class="serif">começa com uma conversa</span>.</h2>
+        <p>Simples, rápido e personalizado. Sem formulário.</p>
+      </div>
+      <div class="cta-main">
+        <a class="btn btn-coral btn-lg" href="#simulacao" data-start>Simular minha cotação</a>
+        <span class="micro">Sem compromisso · cerca de 2 minutos</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Abrigo Saúde · Corretora de planos empresariais</span>
+    <span>Protótipo demonstrativo: marca, planos e valores ilustrativos. Rede e valores sujeitos à confirmação da operadora.</span>
+  </div>
+</footer>
+
+<dialog class="drawer" id="broker" aria-labelledby="broker-title">
+  <div class="dw-head">
+    <div>
+      <span class="demo-tag">CRM DEMONSTRATIVO</span>
+      <h2 id="broker-title">Visão do corretor</h2>
+      <p>O que a operação recebe desta simulação</p>
+    </div>
+    <button class="dw-close" type="button" id="broker-close" aria-label="Fechar visão do corretor"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="dw-body" id="broker-body"></div>
+  <p class="dw-foot">Demonstração: os dados existem só nesta página. Em produção, seriam gravados no CRM da corretora.</p>
+</dialog>
+
+<button class="fab" type="button" id="fab" aria-label="Ir para a simulação com a Bia" hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>
+  <span>Simular agora</span>
+</button>
+
+<script>
+"use strict";
+/* =====================================================================
+   CONFIG — comportamento da demonstração
+   ===================================================================== */
+const DEMO_MODE = true;
+/* Número que recebe os leads no WhatsApp: só dígitos, com DDI e DDD (ex.: "5547999999999").
+   Vazio = o botão fica em modo demonstração. Também aceita ?whatsapp=55... no endereço da página. */
+const WHATSAPP_NUMBER = "5547984783946";
+const CONFIG = {
+  DEMO_MODE,
+  WHATSAPP: (() => {
+    let n = WHATSAPP_NUMBER;
+    try{ const q = new URLSearchParams(location.search).get("whatsapp"); if(q) n = q; }catch(e){}
+    n = String(n || "").replace(/\D/g, "");
+    return n.length >= 12 && n.length <= 13 ? n : "";
+  })(),
+  DEMO_TITLE: "SIMULAÇÃO DEMONSTRATIVA",
+  DEMO_NOTE: "Valores ilustrativos utilizados exclusivamente para demonstração da experiência.",
+  LARGE_GROUP: 30,
+  MAX_MISUNDERSTOOD: 2,
+  HUMAN_RE: /\b(humano|atendente|corretor|corretora|pessoa de verdade|falar com alguem)\b/,
+  DONT_KNOW_RE: /\b(nao sei|sei la|nao tenho certeza|nao faco ideia)\b/,
+  TYPING: { base: 420, max: 1800, perChar: { bot: 8, cor: 13, jul: 13 } },
+  AGENTS: {
+    bot: { name: "Bia",     role: "Assistente virtual", cls: "",    typing: "Bia está digitando…" },
+    cor: { name: "Rafael",  role: "Corretor",           cls: "cor", typing: "Rafael está digitando…" },
+    jul: { name: "Juliana", role: "Pós-venda",          cls: "jul", typing: "Juliana está digitando…" }
+  },
+  WHATSAPP_HANDOFFS: ["contratar", "pedido", "hospital", "portabilidade", "grande"],
+  BUSINESS_HOURS: { days: [1,2,3,4,5], from: 8, to: 18 }, // seg a sex, 8h às 18h
+  GREETING_RE: /^(oi|ola|bom dia|boa tarde|boa noite|e ai|opa)\b|cota|simul|orcamento|preco|valor|plano/
+};
+
+/* =====================================================================
+   DATA — regras comerciais, opções e textos (toda regra fica aqui)
+   ===================================================================== */
+const DATA = {
+  CITIES: ["Joinville", "Jaraguá do Sul", "Blumenau", "Outra cidade"],
+  LIFE_RANGES: [
+    { label: "1–2 vidas",   min: 1,  max: 2,    mode: "ages" },
+    { label: "3–5 vidas",   min: 3,  max: 5,    mode: "ages" },
+    { label: "6–10 vidas",  min: 6,  max: 10,   mode: "groups" },
+    { label: "11–29 vidas", min: 11, max: 29,   mode: "groups" },
+    { label: "30+ vidas",   min: 30, max: null, mode: "broker" }
+  ],
+  AGE_GROUPS: [ // faixas simplificadas da conversa; "rep" é a idade usada na simulação
+    { label: "0–18", rep: 10 }, { label: "19–28", rep: 24 }, { label: "29–38", rep: 33 },
+    { label: "39–48", rep: 43 }, { label: "49–58", rep: 53 }, { label: "59+", rep: 62 }
+  ],
+  ANS_BANDS: ["0–18","19–23","24–28","29–33","34–38","39–43","44–48","49–53","54–58","59+"],
+  ANS_LIMITS: [18,23,28,33,38,43,48,53,58],
+  ANS_FACTOR: [1, 1.22, 1.45, 1.62, 1.78, 1.95, 2.3, 2.85, 3.45, 6.0], // demonstrativo; última faixa = 6x a primeira
+  PLANS: [
+    { id: "essencial",  name: "Essencial",  position: "MAIS ECONÔMICO",    posCls: "eco", base: 128, scope: "Regional", acom: "Enfermaria",  cop: "Com",
+      tagline: "Para proteger a equipe com a menor mensalidade.", benefits: ["Rede regional", "Enfermaria em internações", "Coparticipação, que reduz a mensalidade"], fit: "times que usam pouco o plano e priorizam custo" },
+    { id: "equilibrio", name: "Equilíbrio", position: "MELHOR EQUILÍBRIO", posCls: "",    base: 196, scope: "Estadual", acom: "Apartamento", cop: "Parcial",
+      tagline: "Para empresas que querem combinar custo e cobertura.", benefits: ["Rede ampla no estado", "Apartamento em internações", "Coparticipação parcial"], fit: "quem quer mais conforto sem a mensalidade mais alta" },
+    { id: "completo",   name: "Completo",   position: "MAIS COMPLETO",     posCls: "top", base: 318, scope: "Nacional", acom: "Apartamento", cop: "Sem",
+      tagline: "Para quem quer a rede mais ampla e nenhuma cobrança por uso.", benefits: ["Rede nacional", "Apartamento em internações", "Sem coparticipação"], fit: "equipes que viajam ou usam o plano com frequência" }
+  ],
+  ACOM_FACTOR: { Apartamento: 1, Enfermaria: 0.88 },
+  COP_FACTOR:  { Sem: 1, Parcial: 0.93, Com: 0.85 },
+  COP_LABEL:   { Sem: "Sem coparticipação", Parcial: "Coparticipação parcial", Com: "Com coparticipação" },
+  PRIORITIES: {
+    menor:     { label: "Menor mensalidade",                 phrase: "a menor mensalidade",           plan: "essencial",  reason: "tem a menor mensalidade desta simulação, com rede regional e coparticipação" },
+    rede:      { label: "Melhor rede credenciada",           phrase: "uma rede credenciada mais ampla", plan: "completo",   reason: "tem a rede mais ampla desta simulação, com abrangência nacional" },
+    equilibrio:{ label: "Equilíbrio entre preço e cobertura", phrase: "equilíbrio entre preço e cobertura", plan: "equilibrio", reason: "combina uma mensalidade intermediária com uma cobertura mais completa" },
+    nacional:  { label: "Atendimento nacional",              phrase: "atendimento em todo o país",    plan: "completo",   reason: "é a única opção com abrangência nacional nesta simulação" },
+    hospital:  { label: "Hospitais específicos",             phrase: "manter hospitais específicos",  plan: "equilibrio", reason: "tem rede ampla no estado, o que aumenta a chance de incluir hospitais de referência" },
+    copart:    { label: "Coparticipação",                    phrase: "o modelo de coparticipação",    plan: null,         reason: "" }
+  },
+  CURRENT_PLAN: ["Sim", "Não", "Estamos pesquisando pela primeira vez"],
+  SCORE_RULES: [
+    { key: "nome",        label: "Nome informado",          pts: 5 },
+    { key: "cidade",      label: "Cidade informada",        pts: 5 },
+    { key: "vidas",       label: "Número de vidas",         pts: 10 },
+    { key: "idades",      label: "Idades ou faixas",        pts: 10 },
+    { key: "planoAtual",  label: "Situação do plano atual", pts: 10 },
+    { key: "prioridade",  label: "Prioridade definida",     pts: 10 },
+    { key: "plano",       label: "Escolheu um plano",       pts: 15 },
+    { key: "contato",     label: "Pediu contato",           pts: 15 },
+    { key: "contratar",   label: "Intenção de contratar",   pts: 20 }
+  ],
+  QUALIFICATION: [
+    { min: 80, label: "Lead altamente qualificado", prio: "ALTA PRIORIDADE",  cls: "hi" },
+    { min: 50, label: "Lead qualificado",           prio: "MÉDIA PRIORIDADE", cls: "mid" },
+    { min: 0,  label: "Lead em qualificação",       prio: "BAIXA PRIORIDADE", cls: "lo" }
+  ],
+  INTENTS: ["Pesquisando", "Comparando", "Interessado", "Pronto para falar com corretor"],
+  STATUSES: ["Novo", "Em atendimento", "Qualificado", "Proposta", "Contratação"],
+  PROGRESS: ["Perfil", "Opções", "Necessidade", "Recomendação"],
+  HANDOFF: {
+    contratar:     { agent: "cor", reason: "Cliente quer contratar",                   next: "Contatar para confirmar rede e apresentar proposta" },
+    pedido:        { agent: "cor", reason: "Cliente pediu atendimento humano",         next: "Retomar a conversa a partir dos dados da simulação" },
+    hospital:      { agent: "cor", reason: "Confirmar hospital ou médico na rede",     next: "Confirmar rede com as operadoras e retornar ao cliente" },
+    portabilidade: { agent: "cor", reason: "Avaliar troca de plano e carências",       next: "Analisar o contrato atual e comparar opções" },
+    grande:        { agent: "cor", reason: "Grupo com 30 vidas ou mais",               next: "Negociar condições com as operadoras" },
+    naoentendeu:   { agent: "cor", reason: "A Bia não conseguiu concluir a coleta",    next: "Completar os dados e montar a simulação" },
+    posvenda:      { agent: "jul", reason: "Solicitação de cliente para o pós-venda",  next: "Atender a solicitação no pós-venda" }
+  },
+  COPY: {
+    hello: "Oi! Eu sou a Bia, assistente virtual da Abrigo Saúde. 😊",
+    idleIntro: "Posso montar uma simulação de plano de saúde para a sua empresa em cerca de 2 minutos.",
+    idleMenu: ["Começar minha simulação", "Já sou cliente", "Falar com um corretor"],
+    ctaIntro: "Vi que você quer fazer uma simulação para sua empresa. Para começar, como posso te chamar?",
+    nudge: "Não consegui identificar essa informação. Você pode escolher uma das opções abaixo?",
+    lgpd: "Seus dados são usados apenas para esta simulação, conforme a LGPD.",
+    afterHours: "Nossos corretores atendem de segunda a sexta, das 8h às 18h. Como esta é uma demonstração, vou simular o atendimento agora.",
+    mei: "MEI pode contratar plano coletivo empresarial em determinadas condições. Vou considerar seu perfil e o corretor confirma quais opções estão disponíveis.",
+    minLives: "Algumas operadoras pedem um número mínimo de vidas em contratos empresariais. O corretor confirma quais opções aceitam o seu caso.",
+    large: "Para grupos com 30 vidas ou mais, as operadoras costumam negociar condições específicas, e as regras de ingresso também podem ser diferentes. Nesse caso, o melhor caminho é um corretor conduzir a cotação.",
+    carencia: ["Em contratos empresariais com até 29 beneficiários, pode haver carência. Com 30 ou mais, existem hipóteses de isenção conforme as regras de ingresso.",
+               "Os prazos exatos dependem do contrato e da operadora. O corretor pode confirmar para o seu caso."],
+    reajuste: ["Os contratos coletivos possuem regras específicas de reajuste, que variam conforme o tamanho do grupo e o contrato.",
+               "O valor de cada pessoa também muda quando ela troca de faixa etária. Na proposta, o corretor mostra as regras do contrato escolhido."],
+    network: "A rede disponível depende do produto e da região. Posso encaminhar essa confirmação para um corretor.",
+    docs: ["Cartão CNPJ", "Documento com foto e CPF de cada titular", "Comprovante de vínculo dos dependentes"]
+  }
+};
+
+/* =====================================================================
+   STATE — estado único do lead e da conversa
+   ===================================================================== */
+const STATE = { gen: 0, phase: "idle", pending: null, miss: 0, lead: null };
+function freshLead(){
+  return {
+    name: "", city: "", livesRange: "", lives: 0, livesExact: false, ages: [], currentPlan: "", currentPlanName: "",
+    companyType: "", priority: "", copartPref: "", hospital: "", interestPlan: "",
+    recommended: "", selected: null,          // selected = { id, acom, cop }
+    intent: 0, status: 0, nextStep: "", handoffReason: "", subject: "", channel: "",
+    signals: {}, progress: -1, startedAt: new Date()
+  };
+}
+const Lead = {
+  get(){ return STATE.lead; },
+  set(patch){ Object.assign(STATE.lead, patch); Broker.render(); },
+  signal(key){ if(!STATE.lead.signals[key]){ STATE.lead.signals[key] = true; Broker.render(true); } },
+  raise(field, value){ if(value > STATE.lead[field]){ STATE.lead[field] = value; Broker.render(); } }
+};
+
+/* =====================================================================
+   PRICING DEMO — motor demonstrativo (não é tabela de operadora)
+   ===================================================================== */
+const Pricing = {
+  brl: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 }),
+  brlc: new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }),
+  plan(id){ return DATA.PLANS.find(p => p.id === id); },
+  ansBand(age){ const i = DATA.ANS_LIMITS.findIndex(l => age <= l); return i === -1 ? 9 : i; },
+  quote(id, acom, cop, ages){
+    const p = Pricing.plan(id);
+    const k = (DATA.ACOM_FACTOR[acom] / DATA.ACOM_FACTOR[p.acom]) * (DATA.COP_FACTOR[cop] / DATA.COP_FACTOR[p.cop]);
+    const count = DATA.ANS_BANDS.map(() => 0); ages.forEach(a => count[Pricing.ansBand(a)]++);
+    const lines = []; let total = 0;
+    count.forEach((n, i) => { if(!n) return; const v = Math.round(p.base * DATA.ANS_FACTOR[i] * k * 100) / 100 * n; total += v; lines.push({ band: DATA.ANS_BANDS[i], n, value: v }); });
+    return { total, perLife: ages.length ? total / ages.length : 0, lines };
+  },
+  range(total){ const r = v => Math.round(v / 10) * 10; return Pricing.brl.format(r(total * 0.94)) + " a " + Pricing.brl.format(r(total * 1.08)); },
+  money(v){ return Pricing.brl.format(Math.round(v)); }
+};
+
+/* =====================================================================
+   RECOMMENDATION ENGINE — recomenda para o perfil, nunca "o melhor"
+   ===================================================================== */
+const Reco = {
+  forLead(L){
+    const pr = DATA.PRIORITIES[L.priority] || DATA.PRIORITIES.equilibrio;
+    let planId = pr.plan, reason = pr.reason;
+    if(L.priority === "copart"){
+      planId = L.copartPref === "Com" ? "essencial" : "completo";
+      reason = L.copartPref === "Com" ? "usa coparticipação para manter a mensalidade mais baixa" : "não tem cobrança por uso, o que dá previsibilidade de custo";
+    }
+    const notes = [];
+    if(L.ages.some(a => a >= 59) && planId !== "essencial") notes.push("Como há pessoas acima de 59 anos, a faixa etária pesa mais no valor. Se o custo apertar, a coparticipação é um bom ajuste.");
+    if(L.currentPlan === "Sim") notes.push("Como vocês já têm plano, o corretor pode comparar esta opção com o contrato atual.");
+    if(L.interestPlan && L.interestPlan !== planId) notes.push("Vi que você também se interessou pelo " + Pricing.plan(L.interestPlan).name + ". Posso detalhar ele em seguida.");
+    return { planId, reason, notes };
+  },
+  cheaper(sel){
+    const p = Pricing.plan(sel.id), i = DATA.PLANS.indexOf(p), out = [];
+    if(i > 0){ const q = DATA.PLANS[i - 1]; out.push({ id: q.id, acom: q.acom, cop: q.cop, label: "Ver o " + q.name, desc: "Plano " + q.name + " (" + q.scope.toLowerCase() + ")" }); }
+    if(sel.cop !== "Com") out.push({ id: sel.id, acom: sel.acom, cop: "Com", label: p.name + " com coparticipação", desc: p.name + " com coparticipação" });
+    return out;
+  },
+  keepNetwork(sel){
+    const p = Pricing.plan(sel.id);
+    if(sel.acom === "Apartamento") return { id: sel.id, acom: "Enfermaria", cop: sel.cop, label: "Aplicar enfermaria", desc: p.name + " com enfermaria" };
+    if(sel.cop !== "Com") return { id: sel.id, acom: sel.acom, cop: "Com", label: "Aplicar coparticipação", desc: p.name + " com coparticipação" };
+    return null;
+  }
+};
+
+/* =====================================================================
+   LEAD SCORE — pontuação a partir de sinais reais da conversa
+   ===================================================================== */
+const Score = {
+  compute(){
+    const s = STATE.lead.signals;
+    const score = Math.min(100, DATA.SCORE_RULES.reduce((t, r) => t + (s[r.key] ? r.pts : 0), 0));
+    return { score, level: DATA.QUALIFICATION.find(q => score >= q.min) };
+  }
+};
+
+/* =====================================================================
+   UI — elementos da conversa
+   ===================================================================== */
+const $ = id => document.getElementById(id);
+const UI = {
+  log: $("chat-log"), options: $("chat-options"), input: $("chat-input"), send: $("chat-send"), status: $("chat-status"),
+  reduce: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  el(tag, cls, text){ const e = document.createElement(tag); if(cls) e.className = cls; if(text != null) e.textContent = text; return e; },
+  now(){ const d = new Date(); return String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0"); },
+  nearEnd(){ return UI.log.scrollHeight - UI.log.scrollTop - UI.log.clientHeight < 140; },
+  toEnd(force){ if(force || UI.nearEnd()){ UI.log.scrollTop = UI.log.scrollHeight; $("chat-new").hidden = true; } else $("chat-new").hidden = false; },
+  /* cartões altos: mostra o início do cartão, não o fim */
+  toTop(el){ UI.log.scrollTop = Math.max(0, el.offsetTop - 8); $("chat-new").hidden = true; },
+  /* acrescenta à conversa e decide a rolagem com base em onde a pessoa estava antes */
+  append(el, { force = false, anchor = false } = {}){
+    const wasNear = UI.nearEnd();
+    UI.log.appendChild(el);
+    if(force) return UI.toEnd(true);
+    if(!wasNear) return UI.toEnd(false);
+    if(anchor && el.offsetHeight > UI.log.clientHeight) return UI.toTop(el);
+    UI.toEnd(true);
+  },
+  bubble(side, content, who, wide, anchor){
+    const b = UI.el("div", "b " + side), key = side === "in" ? (who || "bot") : "out";
+    const prev = UI.log.lastElementChild, same = !!(prev && prev.classList.contains("b") && prev.dataset.who === key);
+    b.dataset.who = key; if(same) b.classList.add("cont");
+    if(side === "in" && who && who !== "bot" && !same){ const a = CONFIG.AGENTS[who]; b.appendChild(UI.el("span", "from " + a.cls, a.name + " · " + a.role)); }
+    if(typeof content === "string") b.appendChild(document.createTextNode(content));
+    else if(content){ if(wide !== false) b.classList.add("wide"); b.appendChild(content); }
+    b.appendChild(UI.el("span", "meta", UI.now() + (side === "out" ? " ✓✓" : "")));
+    UI.append(b, { force: side === "out", anchor });
+    return b;
+  },
+  /* texto com trechos em destaque: ["texto ", {b:"destaque"}] */
+  rich(parts, title){
+    const s = UI.el("span");
+    if(title) s.appendChild(UI.el("span", "wow", title));
+    parts.forEach(p => s.appendChild(typeof p === "string" ? document.createTextNode(p) : UI.el("strong", null, p.b)));
+    return s;
+  },
+  sys(text, opts = {}){
+    const s = UI.el("div", "sys" + (opts.hand ? " hand" : "") + (opts.info ? " info" : ""));
+    s.appendChild(UI.el("span", null, text));
+    if(opts.action){ const b = UI.el("button", null, opts.action.label); b.type = "button"; b.addEventListener("click", opts.action.run); s.appendChild(b); }
+    UI.append(s);
+  },
+  day(){ UI.log.appendChild(UI.el("span", "day", "Hoje")); },
+  typingOn(who){ const t = UI.el("div", "typing"); t.setAttribute("aria-hidden", "true"); t.innerHTML = "<i></i><i></i><i></i>"; UI.append(t); UI.status.textContent = CONFIG.AGENTS[who].typing; return t; },
+  typingOff(t){ t.remove(); UI.status.textContent = Reset.status; },
+  lock(placeholder){ UI.options.innerHTML = ""; UI.input.disabled = true; UI.send.disabled = true; UI.input.placeholder = placeholder || "Aguarde…"; },
+  openInput(placeholder){ UI.input.disabled = false; UI.send.disabled = false; UI.input.placeholder = placeholder; },
+  chips(options, primary, onPick){
+    const wasNear = UI.nearEnd();
+    UI.options.innerHTML = "";
+    options.forEach(o => { const b = UI.el("button", o === primary ? "primary" : null, o); b.type = "button"; b.addEventListener("click", () => onPick(o)); UI.options.appendChild(b); });
+    if(wasNear) UI.log.scrollTop = UI.log.scrollHeight; // as opções encolhem a conversa; mantém a última mensagem à vista
+  },
+
+  /* progresso dentro do celular */
+  progress(i, label){
+    const L = STATE.lead; if(i != null && i > L.progress) L.progress = i;
+    const ol = $("sp-steps"); ol.innerHTML = "";
+    DATA.PROGRESS.forEach((s, k) => { const li = UI.el("li", k < L.progress ? "done" : k === L.progress ? "now" : "", s); if(k === L.progress) li.setAttribute("aria-current", "step"); ol.appendChild(li); });
+    $("sp-label").textContent = label || (L.progress < 0 ? "Pronta para começar" : "Simulação em andamento");
+  },
+
+  demoNote(){
+    if(!CONFIG.DEMO_MODE) return null;
+    const d = UI.el("div", "demo-note"); d.appendChild(UI.el("b", null, CONFIG.DEMO_TITLE)); d.appendChild(UI.el("span", null, CONFIG.DEMO_NOTE)); return d;
+  },
+  list(cls, items){ const u = UI.el("ul", cls); items.forEach(t => u.appendChild(UI.el("li", null, t))); return u; },
+  bandTable(lines, label){
+    const d = UI.el("details"); d.appendChild(UI.el("summary", null, label));
+    const t = UI.el("table", "bands"), tb = UI.el("tbody");
+    lines.forEach(l => { const tr = UI.el("tr"); tr.appendChild(UI.el("td", null, l.band + " anos × " + l.n)); tr.appendChild(UI.el("td", null, Pricing.money(l.value))); tb.appendChild(tr); });
+    t.appendChild(tb); d.appendChild(t); return d;
+  },
+
+  analysisCard(){
+    const w = UI.el("div", "analysis");
+    w.appendChild(UI.el("span", "ah", "ANALISANDO PERFIL"));
+    const ul = UI.el("ul");
+    ["Localização identificada", "Quantidade de vidas", "Faixa etária", "Situação do plano atual"].forEach(t => { const li = UI.el("li"); li.appendChild(UI.el("i")); li.appendChild(document.createTextNode(t)); ul.appendChild(li); });
+    w.appendChild(ul); return w;
+  },
+
+  /* primeira comparação: 3 posicionamentos com faixa de preço demonstrativa */
+  comparison(){
+    const L = STATE.lead, wrap = UI.el("div");
+    wrap.appendChild(UI.el("p", "cmp-title", "Encontrei 3 opções para você comparar:"));
+    const note = UI.demoNote(); if(note) wrap.appendChild(note);
+    wrap.appendChild(UI.el("p", "swipe", "Deslize para ver as 3 opções →"));
+    const box = UI.el("div", "plans carousel"); box.setAttribute("aria-label", "Três opções de plano, role para o lado"); box.tabIndex = 0;
+    DATA.PLANS.forEach(p => {
+      const q = Pricing.quote(p.id, p.acom, p.cop, L.ages);
+      const c = UI.el("div", "plan"); c.dataset.plan = p.id;
+      c.appendChild(UI.el("span", "pos " + p.posCls, p.position));
+      const top = UI.el("div", "plan-top"); top.appendChild(UI.el("strong", null, "Plano " + p.name)); c.appendChild(top);
+      c.appendChild(UI.el("p", "tagline", p.tagline));
+      const pr = UI.el("div", "price"); pr.appendChild(UI.el("b", null, Pricing.range(q.total))); pr.appendChild(UI.el("span", null, "por mês · cerca de " + Pricing.brl.format(q.perLife) + " por pessoa")); c.appendChild(pr);
+      c.appendChild(UI.list("benefits", p.benefits));
+      const bt = UI.el("button", null, "Quero conhecer essa opção"); bt.type = "button"; bt.setAttribute("aria-label", "Quero conhecer o plano " + p.name);
+      bt.addEventListener("click", () => Chat.planInterest(p.id)); c.appendChild(bt);
+      box.appendChild(c);
+    });
+    wrap.appendChild(box); return wrap;
+  },
+  markInterest(id){
+    UI.log.querySelectorAll(".plan[data-plan]").forEach(c => { const on = c.dataset.plan === id; c.classList.toggle("picked", on); const b = c.querySelector("button"); if(b) b.setAttribute("aria-pressed", on ? "true" : "false"); });
+  },
+
+  /* simulação detalhada de um plano (recomendado, comparado ou ajustado) */
+  summary(sel, why){
+    const L = STATE.lead, p = Pricing.plan(sel.id), q = Pricing.quote(sel.id, sel.acom, sel.cop, L.ages);
+    const wrap = UI.el("div");
+    const s = UI.el("div", "summary" + (why ? " rec" : ""));
+    s.appendChild(UI.el("span", "pos " + p.posCls, p.position));
+    const top = UI.el("div", "plan-top"); top.appendChild(UI.el("strong", null, "Plano " + p.name)); if(why) top.appendChild(UI.el("span", "badge", "RECOMENDADO PARA VOCÊ")); s.appendChild(top);
+    s.appendChild(UI.list("attrs", [p.scope, sel.acom, DATA.COP_LABEL[sel.cop], Flow.livesLabel(L)]));
+    if(why){ const w = UI.el("div", "why"); w.appendChild(UI.el("b", null, "Por que recomendamos")); w.appendChild(document.createTextNode("Para o perfil informado, porque " + why + ".")); s.appendChild(w); }
+    else { const f = UI.el("p", "fit"); f.appendChild(UI.el("b", null, "Indicado para ")); f.appendChild(document.createTextNode(p.fit + ".")); s.appendChild(f); }
+    s.appendChild(UI.bandTable(q.lines, "Ver valor por faixa etária"));
+    const tot = UI.el("div", "tot"); tot.appendChild(UI.el("span", null, "Estimativa mensal · " + Pricing.money(q.perLife) + " por pessoa")); tot.appendChild(UI.el("b", null, Pricing.money(q.total))); s.appendChild(tot);
+    const items = ["valores da operadora", "regras de carência"];
+    if(L.hospital) items.push("rede para " + L.hospital);
+    if(L.companyType === "MEI" || L.companyType === "A confirmar") items.push("elegibilidade do CNPJ");
+    if(L.currentPlan === "Sim") items.push("comparação com o plano atual");
+    const t = UI.el("p", "tbc"); t.appendChild(UI.el("b", null, "A confirmar pelo corretor: ")); t.appendChild(document.createTextNode(items.join(", ") + ".")); s.appendChild(t);
+    if(CONFIG.DEMO_MODE) s.appendChild(UI.el("p", "fine-demo", "Valores demonstrativos, não são uma cotação de operadora."));
+    wrap.appendChild(s); return wrap;
+  },
+
+  /* seletor de faixas etárias para grupos maiores */
+  groupPicker(onConfirm){
+    const counts = DATA.AGE_GROUPS.map(() => 0);
+    const w = UI.el("div", "picker"); w.appendChild(UI.el("span", "ph", "PESSOAS POR FAIXA ETÁRIA"));
+    const total = UI.el("b", null, "0"), go = UI.el("button", "go", "Confirmar faixas"); go.type = "button"; go.disabled = true;
+    DATA.AGE_GROUPS.forEach((g, i) => {
+      const row = UI.el("div", "prow"); row.appendChild(UI.el("span", null, g.label + " anos"));
+      const st = UI.el("div", "step"), out = UI.el("output", null, "0");
+      const mk = (sym, d, lbl) => { const b = UI.el("button", null, sym); b.type = "button"; b.setAttribute("aria-label", lbl + " pessoa na faixa de " + g.label + " anos");
+        b.addEventListener("click", () => { counts[i] = Math.max(0, Math.min(99, counts[i] + d)); out.textContent = counts[i]; const t = counts.reduce((a, c) => a + c, 0); total.textContent = t; go.disabled = t < 1; }); return b; };
+      st.appendChild(mk("−", -1, "Remover")); st.appendChild(out); st.appendChild(mk("+", 1, "Adicionar")); row.appendChild(st); w.appendChild(row);
+    });
+    const pt = UI.el("div", "ptot"); pt.appendChild(UI.el("span", null, "Total de pessoas")); pt.appendChild(total); w.appendChild(pt);
+    go.addEventListener("click", () => { if(onConfirm(counts.slice())) { w.querySelectorAll("button").forEach(b => b.disabled = true); } });
+    w.appendChild(go); return w;
+  }
+};
+
+/* =====================================================================
+   CHAT ENGINE — fala, digitação e uma única forma de esperar resposta
+   ===================================================================== */
+const ABORT = { abort: true };
+const HUMAN = "__humano__", MISS = "__naoentendeu__", DONT_KNOW = "__naosei__";
+const Chat = {
+  wait(ms){ return new Promise(r => setTimeout(r, ms)); },
+  guard(g){ if(g !== STATE.gen) throw ABORT; },
+  norm(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.!?]/g, "").trim(); },
+  wantsHuman(t){ return CONFIG.HUMAN_RE.test(Chat.norm(t)); },
+  match(options, n){
+    if(!n) return null;
+    const hits = options.filter(o => { const on = Chat.norm(o); return on === n || on.startsWith(n) || (n.length > 3 && on.includes(n)) || (on.length > 3 && n.includes(on)); });
+    return hits.length === 1 ? hits[0] : (hits.find(o => Chat.norm(o) === n) || null);
+  },
+  async typing(g, who, ms){ const t = UI.typingOn(who); await Chat.wait(ms); UI.typingOff(t); Chat.guard(g); },
+  async say(g, who, content, wide, anchor){
+    await Chat.wait(200 + Math.random() * 200); Chat.guard(g);
+    const len = typeof content === "string" ? content.length : 110;
+    await Chat.typing(g, who, Math.min(CONFIG.TYPING.max, CONFIG.TYPING.base + len * CONFIG.TYPING.perChar[who] + Math.random() * 220));
+    return UI.bubble("in", content, who, wide, anchor);
+  },
+  async sayAll(g, who, list){ for(const t of list) await Chat.say(g, who, t); },
+
+  /* espera uma resposta: toque em opção, texto livre, cartão ou componente */
+  expect({ options = [], placeholder, parse, free = false, primary, onPlan }){
+    return new Promise(resolve => {
+      const done = v => { STATE.pending = null; UI.lock(); resolve(v); };
+      STATE.pending = {
+        options, onPlan,
+        pick(label){ if(!options.includes(label)) return false; UI.bubble("out", label); done(label); return true; },
+        resolveWith(value, echo){ if(echo) UI.bubble("out", echo); done(value); return true; },
+        text(v){
+          const n = Chat.norm(v);
+          if(Chat.wantsHuman(v)) return done(HUMAN);
+          if(parse){ const r = parse(v, n); if(r != null) return done(r); }
+          const hit = options.length ? Chat.match(options, n) : null; if(hit) return done(hit);
+          if(CONFIG.DONT_KNOW_RE.test(n)) return done(DONT_KNOW);
+          if(free) return done(v);
+          STATE.miss++;
+          if(STATE.miss >= CONFIG.MAX_MISUNDERSTOOD) return done(MISS);
+          setTimeout(() => UI.bubble("in", DATA.COPY.nudge, "bot"), 450);
+        }
+      };
+      UI.chips(options, primary, o => STATE.pending && STATE.pending.pick(o));
+      UI.openInput(placeholder || (options.length ? "Toque numa opção ou digite" : "Digite sua resposta"));
+    });
+  },
+  /* aplica as regras de escalonamento e "não sei" */
+  async ask(g, cfg, escalate = true){
+    while(true){
+      const r = await Chat.expect(cfg); Chat.guard(g);
+      if(r === HUMAN || r === MISS){
+        if(escalate) throw { handoff: r === HUMAN ? "pedido" : "naoentendeu" };
+        return cfg.options && cfg.options.length ? cfg.options[0] : "";
+      }
+      if(r === DONT_KNOW){
+        if(cfg.onDontKnow){ await cfg.onDontKnow(); continue; }
+        await Chat.say(g, "bot", "Sem problema. " + (cfg.options && cfg.options.length ? "Você pode escolher a opção mais próxima abaixo?" : "Pode me responder do jeito que souber."));
+        continue;
+      }
+      STATE.miss = 0; return r;
+    }
+  },
+  text(g, placeholder, extra = {}, escalate = true){ return Chat.ask(g, Object.assign({ placeholder, free: true }, extra), escalate); },
+  choice(g, options, extra = {}, escalate = true){ return Chat.ask(g, Object.assign({ options }, extra), escalate); },
+
+  onSubmit(e){
+    e.preventDefault();
+    const v = UI.input.value.trim(); if(!v || !STATE.pending) return;
+    UI.input.value = ""; UI.bubble("out", v); STATE.pending.text(v);
+  },
+  /* botão "Quero conhecer essa opção" nos cards */
+  planInterest(id){
+    const p = Pricing.plan(id);
+    if(STATE.pending && STATE.pending.onPlan){ STATE.pending.onPlan(id); return; }
+    if(STATE.phase !== "running") return;
+    UI.bubble("out", "Quero conhecer o " + p.name);
+    Lead.set({ interestPlan: id }); Lead.raise("intent", 2); UI.markInterest(id);
+    setTimeout(() => UI.bubble("in", "Anotei seu interesse no " + p.name + ". Já levo isso em conta na recomendação.", "bot"), 450);
+  }
+};
+
+/* =====================================================================
+   QUALIFICATION — roteiro da Bia (valor cedo, aprofundamento depois)
+   ===================================================================== */
+const Flow = {
+  first(n){
+    const t = n.trim().replace(/^(oi|ola|olá|bom dia|boa tarde|boa noite)[\s,!.]*/i, "")
+      .replace(/^(meu nome (é|e)|me chamo|eu sou (o|a)?|sou (o|a)|sou|aqui (é|e) (o|a)?|pode me chamar de|é (o|a)|e (o|a))\s+/i, "").replace(/[.,!?]+$/g, "").trim();
+    const w = (t.split(/\s+/)[0] || "").replace(/[^A-Za-zÀ-ÿ'-]/g, "");
+    return w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : "";
+  },
+  livesLabel(L){
+    if(L.livesExact) return L.lives + (L.lives === 1 ? " pessoa" : " pessoas");
+    return L.livesRange === "30+ vidas" ? "30 ou mais pessoas" : L.livesRange.replace(" vidas", " pessoas");
+  },
+  agesSummary(ages){
+    const c = DATA.AGE_GROUPS.map(() => 0);
+    ages.forEach(a => { const i = a <= 18 ? 0 : a <= 28 ? 1 : a <= 38 ? 2 : a <= 48 ? 3 : a <= 58 ? 4 : 5; c[i]++; });
+    return c.map((n, i) => n ? n + " de " + DATA.AGE_GROUPS[i].label : null).filter(Boolean).join(" · ");
+  },
+  parseAges(t){
+    const clean = t.replace(/\b\d{1,3}\s*(pessoas?|vidas?|funcion[aá]rios?|dependentes?|filhos?|s[oó]cios?)\b/gi, " ").replace(/\b(somos|temos|são|sao)\b/gi, " ");
+    return (clean.match(/\d{1,3}/g) || []).map(Number).filter(n => n >= 0 && n <= 110);
+  },
+
+  /* estado inicial (sem clique no CTA) */
+  async idle(g){
+    const op = await Chat.choice(g, DATA.COPY.idleMenu, { primary: DATA.COPY.idleMenu[0], parse: (v, n) => CONFIG.GREETING_RE.test(n) ? DATA.COPY.idleMenu[0] : null });
+    STATE.phase = "running";
+    if(op === "Já sou cliente") return Flow.client(g);
+    if(op === "Falar com um corretor") return Flow.brokerFirst(g);
+    await Chat.say(g, "bot", "Ótimo, leva cerca de 2 minutos. Como posso te chamar?");
+    return Flow.profile(g, true);
+  },
+  /* início contextual a partir do CTA "Simular minha cotação" */
+  async fromCta(g){
+    const pre = STATE.lead.interestPlan;
+    await Chat.say(g, "bot", pre
+      ? "Vi que o caminho " + Pricing.plan(pre).name + " chamou sua atenção. Vou levar isso em conta na comparação. Para começar, como posso te chamar?"
+      : DATA.COPY.ctaIntro);
+    return Flow.profile(g, true);
+  },
+
+  async brokerFirst(g){
+    Lead.signal("contato");
+    await Chat.sayAll(g, "bot", ["Claro, posso chamar um corretor agora.", "Se preferir, monto uma simulação rápida antes e o corretor já recebe tudo organizado. O que acha melhor?"]);
+    const r = await Chat.choice(g, ["Fazer a simulação antes", "Quero o corretor agora"]);
+    if(r === "Quero o corretor agora") throw { handoff: "pedido" };
+    await Chat.say(g, "bot", "Combinado, vou ser breve. Como posso te chamar?");
+    return Flow.profile(g, true);
+  },
+
+  async client(g){
+    await Chat.say(g, "bot", "Que bom ter você por aqui. Qual é o assunto?");
+    const r = await Chat.choice(g, ["2ª via do boleto", "Incluir dependente", "Outro assunto"]);
+    Lead.set({ subject: r });
+    await Chat.say(g, "bot", "Posso encaminhar você para o pós-venda para solicitar isso. Nesta demonstração eu não tenho acesso a contratos nem boletos.");
+    const n = await Chat.choice(g, ["Encaminhar para o pós-venda", "Prefiro fazer uma simulação"]);
+    if(n === "Encaminhar para o pós-venda") throw { handoff: "posvenda" };
+    Lead.set({ subject: "" });
+    await Chat.say(g, "bot", "Combinado, vamos à simulação. Como posso te chamar?");
+    return Flow.profile(g, true);
+  },
+
+  /* ETAPAS 1–5: perfil mínimo para a primeira comparação */
+  async profile(g, asked){
+    STATE.phase = "running"; UI.progress(0);
+    if(!asked) await Chat.say(g, "bot", "Como posso te chamar?");
+    let name = Flow.first(await Chat.text(g, "Digite seu nome"));
+    if(!name){ await Chat.say(g, "bot", "Não peguei seu nome. Pode me dizer só o primeiro nome?"); name = Flow.first(await Chat.text(g, "Seu primeiro nome")) || "Cliente"; }
+    Lead.set({ name }); Lead.signal("nome"); Lead.raise("status", 1);
+    await Chat.say(g, "bot", "Prazer, " + name + "! Em qual cidade sua empresa está?");
+    let city = await Chat.choice(g, DATA.CITIES, { free: true, placeholder: "Toque numa opção ou digite a cidade" });
+    if(city === "Outra cidade"){ await Chat.say(g, "bot", "Qual cidade?"); city = await Chat.text(g, "Ex.: Itajaí / SC"); }
+    Lead.set({ city: city.trim() }); Lead.signal("cidade");
+    await Flow.lives(g, "Anotado, " + city.split(/[\/,-]/)[0].trim() + ". ");
+    await Flow.currentPlan(g);
+    return Flow.firstQuote(g);
+  },
+
+  async lives(g, prefix = ""){
+    const labels = DATA.LIFE_RANGES.map(r => r.label);
+    let exact = 0;
+    await Chat.say(g, "bot", prefix + "Quantas pessoas você pretende incluir no plano?");
+    const label = await Chat.choice(g, labels, {
+      placeholder: "Toque numa faixa ou digite o número",
+      parse: (v, n) => { const m = n.match(/\d+/); if(!m) return null; const k = +m[0]; const r = DATA.LIFE_RANGES.find(x => k >= x.min && (x.max == null || k <= x.max)); if(r){ exact = k; return r.label; } return null; },
+      onDontKnow: () => Chat.say(g, "bot", "Sem problema. Vamos pelo mais simples. Quantas pessoas aproximadamente você pretende incluir?")
+    });
+    const range = DATA.LIFE_RANGES.find(r => r.label === label);
+    Lead.set({ livesRange: range.label, lives: exact, livesExact: !!exact }); Lead.signal("vidas");
+    if(range.mode === "broker"){
+      await Chat.say(g, "bot", DATA.COPY.large);
+      throw { handoff: "grande" };
+    }
+    if(range.mode === "ages") await Flow.agesExact(g, range); else await Flow.agesGroups(g, range);
+    Lead.signal("idades");
+  },
+
+  async agesExact(g, range){
+    await Chat.say(g, "bot", "Ótimo. Pode me passar as idades das pessoas? Ex.: 32, 35 e 41.");
+    let fails = 0;
+    while(true){
+      const r = await Chat.text(g, "Ex.: 32, 35, 41", {
+        options: ["Prefiro informar por faixa"],
+        onDontKnow: () => Chat.say(g, "bot", "Sem problema, pode ser aproximado. Se preferir, toque em \"Prefiro informar por faixa\".")
+      });
+      if(r === "Prefiro informar por faixa") return Flow.agesGroups(g, range);
+      const ages = Flow.parseAges(r);
+      if(ages.length){ Flow.storeAges(ages); break; }
+      if(++fails >= CONFIG.MAX_MISUNDERSTOOD) throw { handoff: "naoentendeu" };
+      await Chat.say(g, "bot", "Não consegui identificar as idades. Pode mandar só os números, separados por vírgula?");
+    }
+    await Flow.confirmAges(g, range);
+  },
+
+  async agesGroups(g, range){
+    await Chat.say(g, "bot", "Ótimo. Quantas pessoas há em cada faixa etária? Pode ser aproximado.");
+    let echo = "";
+    const picker = UI.groupPicker(counts => {
+      if(!STATE.pending || !STATE.pending.groups) return false;
+      echo = counts.map((n, i) => n ? n + " de " + DATA.AGE_GROUPS[i].label : null).filter(Boolean).join(" · ");
+      return STATE.pending.resolveWith({ counts }, echo);
+    });
+    await Chat.say(g, "bot", picker);
+    let fails = 0;
+    while(true){
+      const cfg = { placeholder: "Use o quadro acima ou digite as idades", free: true };
+      const p = Chat.expect(cfg); STATE.pending.groups = true;
+      let r = await p; Chat.guard(g);
+      if(r === HUMAN) throw { handoff: "pedido" };
+      if(r === DONT_KNOW){ await Chat.say(g, "bot", "Sem problema, pode ser aproximado. Use o quadro acima com a sua melhor estimativa."); continue; }
+      if(r && r.counts){
+        const ages = []; r.counts.forEach((n, i) => { for(let k = 0; k < n; k++) ages.push(DATA.AGE_GROUPS[i].rep); });
+        Flow.storeAges(ages); break;
+      }
+      const ages = Flow.parseAges(String(r));
+      if(ages.length){ Flow.storeAges(ages); picker.querySelectorAll("button").forEach(b => b.disabled = true); break; }
+      if(++fails >= CONFIG.MAX_MISUNDERSTOOD) throw { handoff: "naoentendeu" };
+      await Chat.say(g, "bot", "Não consegui identificar essa informação. Você pode usar o quadro acima?");
+    }
+    await Flow.confirmAges(g, range);
+  },
+  storeAges(ages){ Lead.set({ ages, lives: ages.length, livesExact: true }); },
+  async confirmAges(g, range){
+    const L = STATE.lead;
+    const inRange = L.lives >= range.min && (range.max == null || L.lives <= range.max);
+    const match = DATA.LIFE_RANGES.find(r => L.lives >= r.min && (r.max == null || L.lives <= r.max));
+    if(!inRange && match) Lead.set({ livesRange: match.label });
+    const summary = (inRange ? "Anotado: " : "Anotei " + L.lives + " pessoas: ") + Flow.agesSummary(L.ages) + ".";
+    if(L.lives >= CONFIG.LARGE_GROUP){ await Chat.say(g, "bot", summary + " " + DATA.COPY.large); throw { handoff: "grande" }; }
+    STATE.agesNote = summary + " ";
+  },
+
+  async currentPlan(g){
+    await Chat.say(g, "bot", (STATE.agesNote || "") + "A empresa já possui plano de saúde hoje?"); STATE.agesNote = "";
+    const r = await Chat.choice(g, DATA.CURRENT_PLAN);
+    Lead.signal("planoAtual");
+    if(r === "Sim"){
+      Lead.set({ currentPlan: "Sim" });
+      await Chat.say(g, "bot", "Qual plano ou operadora vocês utilizam hoje?");
+      const name = await Chat.text(g, "Nome do plano ou operadora", { options: ["Prefiro não informar"], parse: (v, n) => CONFIG.DONT_KNOW_RE.test(n) ? "Prefiro não informar" : null });
+      if(name === "Prefiro não informar") STATE.ack = "Sem problema, seguimos assim.";
+      else { Lead.set({ currentPlanName: name.trim() }); STATE.ack = "Boa, isso ajuda: depois o corretor pode comparar com o que vocês têm hoje."; }
+    } else if(r === "Não"){
+      Lead.set({ currentPlan: "Não" }); STATE.ack = "Entendi.";
+    } else {
+      Lead.set({ currentPlan: "Não (primeira contratação)" }); STATE.ack = "Ótimo, então vou te mostrar um panorama claro.";
+    }
+  },
+
+  /* PRIMEIRA SIMULAÇÃO */
+  async firstQuote(g){
+    await Chat.say(g, "bot", (STATE.ack ? STATE.ack + " " : "") + "Já tenho o principal. Vou considerar sua cidade, o número de pessoas e as idades para montar uma primeira comparação."); STATE.ack = "";
+    const card = await Chat.say(g, "bot", UI.analysisCard());
+    for(const li of card.querySelectorAll(".analysis li")){ await Chat.wait(UI.reduce ? 120 : 420); Chat.guard(g); li.classList.add("ok"); }
+    UI.progress(1);
+    await Chat.say(g, "bot", UI.comparison(), undefined, true);
+    Lead.raise("intent", 1);
+    Lead.set({ nextStep: "Aguardar a Bia concluir a recomendação" });
+    return Flow.need(g);
+  },
+
+  /* APROFUNDAMENTO: prioridade muda a recomendação */
+  async need(g){
+    UI.progress(2);
+    await Chat.say(g, "bot", "Para eu refinar essa simulação, o que é mais importante para sua empresa?");
+    const labels = Object.values(DATA.PRIORITIES).map(p => p.label);
+    const pick = await Chat.choice(g, labels, { onPlan: id => Chat.planInterestDuring(id) });
+    const key = Object.keys(DATA.PRIORITIES).find(k => DATA.PRIORITIES[k].label === pick);
+    Lead.set({ priority: key }); Lead.signal("prioridade");
+    if(key === "hospital"){
+      await Chat.say(g, "bot", "Qual hospital ou médico é importante para vocês?");
+      Lead.set({ hospital: (await Chat.text(g, "Nome do hospital ou médico")).trim() });
+      await Chat.say(g, "bot", "Anotado. A rede disponível depende do produto e da região, então essa confirmação fica com o corretor.");
+    }
+    if(key === "copart"){
+      await Chat.say(g, "bot", "Você prefere coparticipação, com mensalidade menor e um valor por uso, ou sem cobrança por uso?");
+      const c = await Chat.choice(g, ["Com coparticipação", "Sem coparticipação"]);
+      Lead.set({ copartPref: c.startsWith("Com") ? "Com" : "Sem" });
+    }
+    return Flow.recommend(g);
+  },
+
+  /* MOMENTO WOW + RECOMENDAÇÃO */
+  async recommend(g){
+    const L = STATE.lead, rec = Reco.forLead(L), p = Pricing.plan(rec.planId);
+    Lead.set({ recommended: rec.planId });
+    UI.progress(3, "Recomendação pronta");
+    await Chat.say(g, "bot", UI.rich(["Você está buscando uma solução para ", { b: Flow.livesLabel(L) }, ", em ", { b: L.city }, ", priorizando ", { b: DATA.PRIORITIES[L.priority].phrase }, ".\n\nPelo que você me contou, eu começaria pelo ", { b: p.name }, ". Ele tende a fazer mais sentido para o seu perfil porque " + rec.reason + "."], "Entendi o seu perfil."), false);
+    if(rec.notes.length) await Chat.say(g, "bot", rec.notes.join(" "));
+    await Chat.say(g, "bot", UI.summary({ id: p.id, acom: p.acom, cop: p.cop }, rec.reason), undefined, true);
+    Lead.raise("status", 2);
+    Lead.set({ nextStep: "Acompanhar o interesse e oferecer contato com corretor" });
+    return Flow.choosePlan(g, rec.planId);
+  },
+
+  async choosePlan(g, planId){
+    while(true){
+      const p = Pricing.plan(planId);
+      const follow = "Seguir com o " + p.name;
+      await Chat.say(g, "bot", "Quer seguir com o " + p.name + " ou comparar outra opção?");
+      let chosenByCard = null;
+      const r = await Chat.choice(g, [follow, "Comparar outra opção", "Quero falar com um corretor"], {
+        primary: follow,
+        onPlan: id => { chosenByCard = id; STATE.pending.resolveWith("__card__", "Quero conhecer o " + Pricing.plan(id).name); }
+      });
+      if(r === "__card__"){
+        if(chosenByCard === planId) return Flow.select(g, planId);
+        planId = chosenByCard; const q = Pricing.plan(planId);
+        await Chat.say(g, "bot", UI.summary({ id: q.id, acom: q.acom, cop: q.cop }, null));
+        continue;
+      }
+      if(r === follow) return Flow.select(g, planId);
+      if(r === "Quero falar com um corretor"){ Lead.signal("contato"); throw { handoff: "pedido" }; }
+      const others = DATA.PLANS.filter(x => x.id !== planId).map(x => x.name);
+      await Chat.say(g, "bot", "Claro. Qual você quer ver?");
+      const o = await Chat.choice(g, others);
+      const q = DATA.PLANS.find(x => x.name === o); planId = q.id;
+      await Chat.say(g, "bot", UI.summary({ id: q.id, acom: q.acom, cop: q.cop }, null));
+    }
+  },
+
+  async select(g, planId){
+    const p = Pricing.plan(planId);
+    Lead.set({ selected: { id: p.id, acom: p.acom, cop: p.cop }, interestPlan: p.id }); Lead.signal("plano"); Lead.raise("intent", 2); UI.markInterest(p.id);
+    UI.log.querySelectorAll(".plan[data-plan] > button").forEach(b => b.disabled = true);
+    Lead.set({ nextStep: "Tirar dúvidas e conduzir para proposta do " + p.name });
+    await Chat.say(g, "bot", "Boa escolha, " + STATE.lead.name + ". Só mais um detalhe para o corretor: a empresa é MEI, ME/EPP ou de outro porte?");
+    const t = await Chat.choice(g, ["MEI", "ME/EPP", "Outro porte", "Não sei"]);
+    Lead.set({ companyType: t === "Não sei" ? "A confirmar" : t });
+    let ack = t === "MEI" ? DATA.COPY.mei : t === "Não sei" ? "Sem problema. Vou anotar como \"a confirmar\", e o corretor verifica pelo CNPJ." : "Obrigada, anotado.";
+    if(STATE.lead.lives === 1) ack += " " + DATA.COPY.minLives;
+    await Chat.say(g, "bot", ack);
+    return Flow.questions(g);
+  },
+
+  /* dúvidas e objeções */
+  async questions(g){
+    const L = STATE.lead, asked = {};
+    await Chat.say(g, "bot", "Sua simulação está pronta. Quer tirar alguma dúvida antes de falar com um corretor?");
+    while(true){
+      const ops = [];
+      if(!asked.preco) ops.push("Achei caro");
+      if(!asked.car) ops.push("Como funciona a carência?");
+      if(!asked.rej) ops.push("Como é o reajuste?");
+      ops.push("Atende um hospital específico?", "Vou pensar", "Quero contratar");
+      const d = await Chat.choice(g, ops, { primary: "Quero contratar" });
+      if(d === "Achei caro"){ asked.preco = true; await Flow.priceObjection(g); }
+      else if(d === "Como funciona a carência?"){
+        asked.car = true; await Chat.say(g, "bot", DATA.COPY.carencia.join(" "));
+        if(L.currentPlan === "Sim"){
+          await Chat.say(g, "bot", "Como vocês já têm plano, pode ser possível aproveitar carências, dependendo do contrato atual e da nova operadora. Quer que um corretor avalie?");
+          if(await Chat.choice(g, ["Sim, quero avaliar", "Depois"]) === "Sim, quero avaliar"){ Lead.signal("contato"); throw { handoff: "portabilidade" }; }
+        }
+        await Chat.say(g, "bot", "Posso ajudar com mais alguma coisa?");
+      }
+      else if(d === "Como é o reajuste?"){ asked.rej = true; await Chat.say(g, "bot", DATA.COPY.reajuste.join(" ") + "\n\nPosso ajudar com mais alguma coisa?"); }
+      else if(d === "Atende um hospital específico?"){
+        if(!L.hospital){ await Chat.say(g, "bot", "Qual hospital ou médico?"); Lead.set({ hospital: (await Chat.text(g, "Nome do hospital ou médico")).trim() }); }
+        await Chat.say(g, "bot", DATA.COPY.network);
+        if(await Chat.choice(g, ["Falar com um corretor", "Depois"], { primary: "Falar com um corretor" }) === "Falar com um corretor"){ Lead.signal("contato"); throw { handoff: "hospital" }; }
+        await Chat.say(g, "bot", "Combinado. Posso ajudar com mais alguma coisa?");
+      }
+      else if(d === "Vou pensar") return Flow.thinkItOver(g);
+      else {
+        Lead.signal("contratar"); Lead.raise("intent", 3);
+        await Chat.say(g, "bot", "Ótimo. Nesse momento, o melhor é um corretor assumir para confirmar os detalhes e orientar os próximos passos.");
+        const c = await Chat.choice(g, ["Falar com um corretor agora", "Antes, tenho uma dúvida"], { primary: "Falar com um corretor agora" });
+        if(c === "Falar com um corretor agora"){ Lead.signal("contato"); throw { handoff: "contratar" }; }
+        await Chat.say(g, "bot", "Claro, pode perguntar.");
+      }
+    }
+  },
+
+  /* objeção de preço vira qualificação */
+  async priceObjection(g){
+    const L = STATE.lead, sel = L.selected, cur = Pricing.quote(sel.id, sel.acom, sel.cop, L.ages).total;
+    await Chat.say(g, "bot", "Entendo. O que pesa mais para você: reduzir a mensalidade ou manter uma rede mais ampla?");
+    const r = await Chat.choice(g, ["Reduzir a mensalidade", "Manter a rede"]);
+    const alts = r === "Reduzir a mensalidade" ? Reco.cheaper(sel) : [Reco.keepNetwork(sel)].filter(Boolean);
+    if(!alts.length){
+      await Chat.say(g, "bot", "Esta já é a configuração mais econômica desta simulação. O corretor pode comparar produtos de outras operadoras com você.");
+      if(await Chat.choice(g, ["Falar com um corretor", "Seguir assim"]) === "Falar com um corretor"){ Lead.signal("contato"); throw { handoff: "pedido" }; }
+      return Chat.say(g, "bot", "Combinado. Posso ajudar com mais alguma coisa?");
+    }
+    const lines = alts.map(a => { const v = Pricing.quote(a.id, a.acom, a.cop, L.ages).total; return "• " + a.desc + ": " + Pricing.money(v) + " (−" + Pricing.money(cur - v) + " por mês)"; });
+    await Chat.say(g, "bot", (r === "Reduzir a mensalidade" ? "Faz sentido. Nesta simulação, dá para reduzir assim:\n" : "Então dá para manter a mesma rede e ajustar a configuração:\n") + lines.join("\n"));
+    const sel2 = await Chat.choice(g, alts.map(a => a.label).concat("Manter como está"));
+    const alt = alts.find(a => a.label === sel2);
+    if(!alt) return Chat.say(g, "bot", "Perfeito, mantive como estava. Posso ajudar com mais alguma coisa?");
+    Lead.set({ selected: { id: alt.id, acom: alt.acom, cop: alt.cop }, interestPlan: alt.id });
+    await Chat.say(g, "bot", "Pronto, simulação atualizada:");
+    await Chat.say(g, "bot", UI.summary(STATE.lead.selected, null));
+    await Chat.say(g, "bot", "Posso ajudar com mais alguma coisa?");
+  },
+
+  async thinkItOver(g){
+    await Chat.say(g, "bot", "Claro. É uma decisão importante e vale comparar com calma. Posso deixar essa simulação registrada para o corretor retomar com você depois?");
+    const r = await Chat.choice(g, ["Pode deixar", "Prefiro chamar depois"]);
+    if(r === "Pode deixar"){
+      Lead.set({ nextStep: "Retomar a simulação com o cliente em momento combinado" });
+      await Chat.say(g, "bot", "Combinado, ficou registrado. Quando quiser continuar, é só mandar uma mensagem.");
+    } else {
+      Lead.set({ nextStep: "Aguardar o cliente retomar o contato" });
+      await Chat.say(g, "bot", "Sem problema. Quando quiser, é só voltar aqui que a gente continua.");
+    }
+    return Reset.end(g, "Simulação salva nesta demonstração");
+  }
+};
+/* clique em card durante a pergunta de prioridade: registra interesse sem pular a pergunta */
+Chat.planInterestDuring = function(id){
+  const p = Pricing.plan(id);
+  UI.bubble("out", "Quero conhecer o " + p.name);
+  Lead.set({ interestPlan: id }); Lead.raise("intent", 2); UI.markInterest(id);
+  setTimeout(() => UI.bubble("in", "Anotei seu interesse no " + p.name + ". Me conta o que é mais importante para vocês, que eu confirmo se ele é o melhor caminho.", "bot"), 450);
+};
+
+/* =====================================================================
+   HANDOFF — transferência para pessoa, com contexto completo
+   ===================================================================== */
+const Handoff = {
+  async run(g, key){
+    const h = DATA.HANDOFF[key], agent = CONFIG.AGENTS[h.agent];
+    STATE.phase = "running"; UI.lock();
+    if(key === "pedido") await Chat.say(g, "bot", "Claro, vou chamar um corretor.");
+    if(key === "naoentendeu") await Chat.say(g, "bot", "Acho que não estou conseguindo entender bem. Vou chamar um corretor para te ajudar.");
+    if(key === "posvenda") await Chat.say(g, "bot", "Vou encaminhar para a Juliana, do pós-venda.");
+    Lead.set({ handoffReason: h.reason, nextStep: h.next });
+    if(key !== "posvenda") Lead.raise("intent", 3);
+    if(key === "contratar") Lead.raise("status", 3);
+    UI.progress(null, "Com o corretor");
+
+    if(CONFIG.WHATSAPP_HANDOFFS.includes(key)){
+      await Chat.say(g, "bot", "Posso continuar sua simulação pelo WhatsApp e encaminhar as informações que você já me passou para o corretor?");
+      const c = await Chat.choice(g, ["Continuar pelo WhatsApp", "Continuar aqui"], { primary: "Continuar pelo WhatsApp" }, false);
+      if(c === "Continuar pelo WhatsApp") return WhatsAppDemo.run(g, h);
+    }
+    await Chat.say(g, "bot", (Handoff.inHours() ? "" : DATA.COPY.afterHours + " ") + agent.name + " vai receber todo o contexto da conversa, então você não precisa repetir nada.");
+    await Chat.wait(350); Chat.guard(g);
+    UI.sys("Dados enviados para " + agent.name + " · " + h.reason, { hand: true, action: { label: "Ver o que o corretor recebe", run: () => Broker.open() } });
+    await Chat.wait(600); Chat.guard(g);
+    UI.sys(agent.name + " entrou na conversa");
+    Lead.set({ channel: "Conversa no site" });
+    await Handoff.scripts[key](g, STATE.lead);
+    return Reset.end(g);
+  },
+  inHours(d = new Date()){ const h = CONFIG.BUSINESS_HOURS; return h.days.includes(d.getDay()) && d.getHours() >= h.from && d.getHours() < h.to; },
+  hi(L){ return "Oi" + (L.name ? ", " + L.name : "") + "! Aqui é o Rafael, corretor da Abrigo Saúde."; },
+  scripts: {
+    async contratar(g, L){
+      const s = L.selected, q = Pricing.quote(s.id, s.acom, s.cop, L.ages);
+      await Chat.sayAll(g, "cor", [
+        Handoff.hi(L) + " Já vi sua simulação: Plano " + Pricing.plan(s.id).name + ", " + Flow.livesLabel(L) + " em " + L.city + ", estimativa demonstrativa de " + Pricing.money(q.total) + " por mês. Vou preparar a proposta com as condições reais da operadora, que podem ser diferentes da simulação.",
+        "Para isso, vou precisar de:\n• " + DATA.COPY.docs.concat(L.currentPlan === "Sim" ? ["Contrato ou carteirinha do plano atual"] : []).join("\n• ") + (L.hospital ? "\n\nTambém vou confirmar a rede para " + L.hospital + "." : "") + "\n\nPrefere seguir por aqui ou por ligação?"
+      ]);
+      const r = await Chat.choice(g, ["Seguir por aqui", "Prefiro ligação"], {}, false);
+      await Chat.say(g, "cor", r === "Seguir por aqui" ? "Perfeito. Pode enviar os documentos por aqui quando puder." : "Combinado. Vou te ligar para alinhar os detalhes da proposta.");
+    },
+    async pedido(g, L){
+      await Chat.sayAll(g, "cor", [Handoff.hi(L) + " " + L.lives ? "Já estou com as informações que você passou para a Bia. Como posso ajudar?" : "Como posso te ajudar?"]);
+      await Chat.text(g, "Escreva sua mensagem", {}, false);
+      await Chat.say(g, "cor", "Entendi. Vou verificar e te respondo por aqui.");
+    },
+    async hospital(g, L){
+      await Chat.sayAll(g, "cor", [Handoff.hi(L) + " " + "Vi que " + (L.hospital || "um hospital específico") + " é importante para vocês. A rede depende do produto e da região, então vou confirmar com as operadoras e te retorno com a resposta."]);
+      await Chat.choice(g, ["Combinado"], {}, false);
+      await Chat.say(g, "cor", "Perfeito. Se surgir outra dúvida enquanto isso, pode mandar por aqui.");
+    },
+    async portabilidade(g, L){
+      await Chat.sayAll(g, "cor", [Handoff.hi(L) + " " + "Vi que vocês já têm plano" + (L.currentPlanName ? " (" + L.currentPlanName + ")" : "") + ". Pode me enviar a carteirinha e a data de início do contrato atual? Com isso eu avalio a troca e a questão das carências, conforme as regras de cada contrato."]);
+      await Chat.choice(g, ["Envio agora", "Envio mais tarde"], {}, false);
+      await Chat.say(g, "cor", "Obrigado. Assim que receber, te retorno com a análise.");
+    },
+    async grande(g, L){
+      await Chat.sayAll(g, "cor", [Handoff.hi(L) + " " + "Para um grupo com " + (L.livesExact ? L.lives : "30 ou mais") + " pessoas, eu negocio direto com as operadoras. Vou precisar da distribuição por idade e do cartão CNPJ para começar."]);
+      await Chat.choice(g, ["Combinado"], {}, false);
+      await Chat.say(g, "cor", "Perfeito. Vou iniciar a negociação e te apresento as propostas por aqui.");
+    },
+    async naoentendeu(g, L){
+      await Chat.sayAll(g, "cor", [Handoff.hi(L) + " " + "Pode me mandar as informações do jeito que for mais fácil para você. Eu organizo a simulação."]);
+      await Chat.text(g, "Escreva sua mensagem", {}, false);
+      await Chat.say(g, "cor", "Recebi, obrigado. Vou montar a simulação e te mando por aqui.");
+    },
+    async posvenda(g, L){
+      await Chat.say(g, "jul", "Oi! Aqui é a Juliana, do pós-venda. Vi que o assunto é: " + L.subject.toLowerCase() + ". Pode me informar o nome da empresa?");
+      await Chat.text(g, "Nome da empresa", {}, false);
+      await Chat.say(g, "jul", "Obrigada. Vou dar andamento à sua solicitação e te respondo por aqui.");
+    }
+  }
+};
+
+/* =====================================================================
+   WHATSAPP DEMO — continuação simulada, sem integração real
+   ===================================================================== */
+const WhatsAppDemo = {
+  message(L, h){
+    const lines = ["Olá! Vim da simulação da Abrigo Saúde PME.", "",
+      "Nome: " + (L.name || "—"), "Cidade: " + (L.city || "—"), "Vidas: " + (L.livesRange || L.lives ? Flow.livesLabel(L) : "—")];
+    if(L.ages.length) lines.push("Faixa etária: " + Flow.agesSummary(L.ages));
+    if(L.currentPlan) lines.push("Plano atual: " + L.currentPlan + (L.currentPlanName ? " (" + L.currentPlanName + ")" : ""));
+    lines.push("Perfil: " + (L.companyType || "a confirmar"));
+    if(L.priority) lines.push("Prioridade: " + DATA.PRIORITIES[L.priority].label);
+    lines.push("Interesse: " + (L.interestPlan ? "Plano " + Pricing.plan(L.interestPlan).name : "—"));
+    if(L.selected) lines.push("Estimativa da simulação: " + Pricing.money(Pricing.quote(L.selected.id, L.selected.acom, L.selected.cop, L.ages).total) + "/mês (demonstrativa)");
+    if(L.hospital) lines.push("Hospital de interesse: " + L.hospital);
+    lines.push("", "Gostaria de continuar minha cotação.");
+    return lines.join("\n");
+  },
+  link(text){ return "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent(text); },
+  card(text){
+    const live = !!CONFIG.WHATSAPP;
+    const w = UI.el("div", "wa-card");
+    const h = UI.el("div", "wh"); const ic = UI.el("i"); ic.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>'; h.appendChild(ic); h.appendChild(document.createTextNode("Mensagem pronta para o corretor")); w.appendChild(h);
+    const msg = UI.el("div", "wa-msg", text); w.appendChild(msg);
+    if(live){
+      const a = UI.el("a", "wa-open"); a.href = WhatsAppDemo.link(text); a.target = "_blank"; a.rel = "noopener";
+      a.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.8-1.1-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg>';
+      a.appendChild(document.createTextNode("Abrir no WhatsApp"));
+      a.addEventListener("click", () => Lead.set({ channel: "WhatsApp" }));
+      w.appendChild(a);
+    }
+    const b = UI.el("button", live ? "ghost" : null, "Copiar mensagem"); b.type = "button";
+    b.addEventListener("click", () => {
+      const fallback = () => { const r = document.createRange(); r.selectNodeContents(msg); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Texto selecionado"; };
+      try{ navigator.clipboard.writeText(text).then(() => { b.textContent = "Mensagem copiada"; }, fallback); } catch(e){ fallback(); }
+    });
+    w.appendChild(b);
+    w.appendChild(UI.el("p", "wnote", live
+      ? "Ao tocar, o WhatsApp abre com essa mensagem pronta. É só enviar. Os valores da simulação são demonstrativos."
+      : "Demonstração: nenhum número de WhatsApp foi configurado, então nada é enviado. Com o número configurado, este botão abre a conversa com a mensagem acima."));
+    return w;
+  },
+  async run(g, h){
+    const L = STATE.lead;
+    Lead.set({ channel: CONFIG.WHATSAPP ? "WhatsApp" : "WhatsApp (demonstração)", nextStep: h.next + " pelo WhatsApp" });
+    await Chat.say(g, "bot", "Sua simulação está pronta para continuar." + (Handoff.inHours() ? "" : " O corretor responde no próximo horário de atendimento, de segunda a sexta, das 8h às 18h."));
+    await Chat.say(g, "bot", WhatsAppDemo.card(WhatsAppDemo.message(L, h)));
+    UI.sys(CONFIG.WHATSAPP ? "O corretor recebe estes dados junto com a mensagem" : "O corretor receberia estes dados junto com a mensagem", { hand: true, action: { label: "Ver o que o corretor recebe", run: () => Broker.open() } });
+    return Reset.end(g, CONFIG.WHATSAPP ? "Simulação pronta para continuar no WhatsApp" : "Simulação encaminhada nesta demonstração");
+  }
+};
+
+/* =====================================================================
+   CRM / BROKER VIEW — painel lateral com o lead consolidado
+   ===================================================================== */
+const Broker = {
+  dialog: $("broker"), body: $("broker-body"), pill: $("broker-pill"),
+  open(){ Broker.render(); if(typeof Broker.dialog.showModal === "function") Broker.dialog.showModal(); else Broker.dialog.setAttribute("open", ""); },
+  close(){ if(Broker.dialog.open) Broker.dialog.close(); },
+  steps(labels, current, cls){
+    const ol = UI.el("ol", "steps-h" + (cls ? " " + cls : ""));
+    labels.forEach((l, i) => { const li = UI.el("li", i < current ? "done" : i === current ? "now" : "", l); if(i === current) li.setAttribute("aria-current", "step"); ol.appendChild(li); });
+    return ol;
+  },
+  box(title, ...children){ const b = UI.el("section", "box"); b.appendChild(UI.el("h3", null, title)); children.forEach(c => c && b.appendChild(c)); return b; },
+  render(bump){
+    const L = STATE.lead; if(!L) return;
+    const s = Score.compute();
+    Broker.pill.textContent = s.score ? s.score : "—";
+    if(bump && !UI.reduce){ Broker.pill.classList.remove("bump"); void Broker.pill.offsetWidth; Broker.pill.classList.add("bump"); }
+    Broker.pill.parentElement.setAttribute("aria-label", "Abrir visão do corretor, score " + s.score + " de 100");
+    Broker.paint(L, s);
+  },
+  paint(L, s){
+    const body = Broker.body; body.innerHTML = "";
+    if(L.subject) s = { score: s.score, level: { label: "Cliente da carteira · pós-venda", prio: "PÓS-VENDA", cls: "mid" } };
+    // identificação + score
+    const id = UI.el("div", "lead-id"), left = UI.el("div");
+    left.appendChild(UI.el("strong", null, L.name || "Lead sem nome ainda"));
+    left.appendChild(UI.el("small", null, "Empresa demonstrativa · Origem: simulação online · " + String(L.startedAt.getHours()).padStart(2, "0") + ":" + String(L.startedAt.getMinutes()).padStart(2, "0")));
+    left.appendChild(UI.el("span", "qual " + s.level.cls, s.level.label));
+    const sc = UI.el("div", "score"); const num = UI.el("b", null, String(s.score)); num.appendChild(UI.el("small", null, "/100")); sc.appendChild(num);
+    const bar = UI.el("div", "bar"); bar.setAttribute("aria-hidden", "true"); const fill = UI.el("i"); fill.style.width = s.score + "%"; bar.appendChild(fill); sc.appendChild(bar);
+    sc.appendChild(UI.el("span", "prio " + s.level.cls, s.level.prio));
+    id.appendChild(left); id.appendChild(sc);
+    const idBox = UI.el("section", "box"); idBox.appendChild(id); body.appendChild(idBox);
+    // próximo passo
+    const next = UI.el("section", "box next"); next.appendChild(UI.el("h3", null, "PRÓXIMO PASSO"));
+    next.appendChild(UI.el("p", null, L.nextStep || "Aguardar a conversa com a Bia"));
+    if(L.handoffReason) next.appendChild(UI.el("small", null, "Motivo da transferência: " + L.handoffReason + (L.channel ? " · Canal: " + L.channel : "")));
+    body.appendChild(next);
+    // status e intenção
+    body.appendChild(Broker.box("STATUS", Broker.steps(DATA.STATUSES, L.status)));
+    body.appendChild(Broker.box("INTENÇÃO", Broker.steps(DATA.INTENTS, L.name ? L.intent : -1, "intent")));
+    // dados
+    const dl = UI.el("dl", "kv");
+    const sel = L.selected;
+    [["Nome", L.name], ["Cidade", L.city], ["Vidas", L.livesRange || L.lives ? Flow.livesLabel(L) + (L.livesExact && L.livesRange ? " · faixa " + L.livesRange : "") : ""],
+     ["Faixa etária", L.ages.length ? Flow.agesSummary(L.ages) : ""],
+     ["Plano atual", L.currentPlan ? L.currentPlan + (L.currentPlanName ? " · " + L.currentPlanName : "") : ""],
+     ["Perfil da empresa", L.companyType], ["Prioridade", L.priority ? DATA.PRIORITIES[L.priority].label + (L.copartPref ? " · " + L.copartPref.toLowerCase() : "") : ""],
+     ["Hospital de interesse", L.hospital], ["Recomendado pela Bia", L.recommended ? "Plano " + Pricing.plan(L.recommended).name : ""],
+     ["Interesse", L.interestPlan ? "Plano " + Pricing.plan(L.interestPlan).name + (sel && sel.id === L.interestPlan ? " · " + sel.acom.toLowerCase() + ", " + DATA.COP_LABEL[sel.cop].toLowerCase() : "") : ""],
+     ["Assunto", L.subject]]
+      .forEach(([k, v]) => { if(k === "Assunto" && !v) return; dl.appendChild(UI.el("dt", null, k)); dl.appendChild(UI.el("dd", v ? null : "empty", v || "—")); });
+    body.appendChild(Broker.box("LEAD", dl));
+    // sinais
+    const ul = UI.el("ul", "signals");
+    DATA.SCORE_RULES.forEach(r => { const li = UI.el("li", L.signals[r.key] ? "on" : ""); li.appendChild(UI.el("span", null, r.label)); li.appendChild(UI.el("b", null, "+" + r.pts)); ul.appendChild(li); });
+    body.appendChild(Broker.box("SINAIS DE QUALIFICAÇÃO", ul));
+    const flow = UI.el("ol", "ops-flow");
+    [["Site", ""], ["Bia", "bia"], ["Qualificação", ""], ["Simulação", ""], ["Recomendação", ""], ["Corretor", "hum"], ["CRM", ""]].forEach(([t, c]) => flow.appendChild(UI.el("li", c, t)));
+    const rules = UI.el("ul", "ops-rules");
+    ["Cliente decide contratar", "Pede para falar com uma pessoa", "Quer confirmar hospital ou médico", "Já tem plano e quer avaliar carências", "Grupo com 30 vidas ou mais", "Duas respostas não compreendidas", "Assunto de pós-venda"].forEach(t => rules.appendChild(UI.el("li", null, t)));
+    const lbl = UI.el("p", "tbc", "A Bia transfere para uma pessoa quando:"); lbl.style.marginBottom = "6px";
+    body.appendChild(Broker.box("COMO A OPERAÇÃO FUNCIONA", flow, lbl, rules));
+  }
+};
+
+/* =====================================================================
+   RESET — início, fim e nova simulação
+   ===================================================================== */
+const Reset = {
+  status: "Assistente virtual · no site",
+  end(g, label){
+    Chat.guard(g);
+    STATE.phase = "ended";
+    UI.sys((label || "Atendimento transferido") + (CONFIG.DEMO_MODE ? " · em produção, a conversa e os dados seguiriam para o CRM" : ""));
+    UI.lock("Conversa encerrada");
+    const b = UI.el("button", "primary", "Nova simulação"); b.type = "button"; b.addEventListener("click", () => Reset.start("cta")); UI.options.appendChild(b);
+    const v = UI.el("button", null, "Ver visão do corretor"); v.type = "button"; v.addEventListener("click", () => Broker.open()); UI.options.appendChild(v);
+  },
+  run(g, entry){
+    entry(g).catch(e => {
+      if(e && e.handoff) return Handoff.run(g, e.handoff).catch(x => { if(x !== ABORT) console.error(x); });
+      if(e !== ABORT) console.error(e);
+    });
+  },
+  /* mode: "idle" (página aberta) ou "cta" (clicou em Simular / Nova simulação) */
+  start(mode, opts = {}){
+    STATE.gen++; STATE.pending = null; STATE.miss = 0; STATE.lead = freshLead();
+    STATE.phase = mode === "idle" ? "idle" : "running";
+    if(opts.plan) STATE.lead.interestPlan = opts.plan;
+    const g = STATE.gen;
+    UI.lock(); UI.log.innerHTML = ""; UI.status.textContent = Reset.status; $("chat-new").hidden = true; UI.progress(null);
+    Broker.render();
+    UI.day();
+    UI.sys(DATA.COPY.lgpd, { info: true });
+    UI.bubble("in", DATA.COPY.hello, "bot");
+    if(mode === "idle"){ UI.bubble("in", DATA.COPY.idleIntro, "bot"); Reset.run(g, Flow.idle); }
+    else Reset.run(g, Flow.fromCta);
+  }
+};
+
+/* =====================================================================
+   PÁGINA — CTAs, botão flutuante, gaveta e inicialização
+   ===================================================================== */
+const Page = {
+  smooth(){ return UI.reduce ? "auto" : "smooth"; },
+  focusChat(){ setTimeout(() => { const b = UI.options.querySelector("button"); if(b) b.focus({ preventScroll: true }); else if(!UI.input.disabled) UI.input.focus({ preventScroll: true }); }, UI.reduce ? 0 : 700); },
+  startFromCta(plan){
+    const fresh = STATE.phase !== "running" || !STATE.lead.name;
+    $("simulacao").scrollIntoView({ behavior: Page.smooth(), block: "start" });
+    if(fresh) Reset.start("cta", { plan });
+    Page.focusChat();
+  },
+  init(){
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+      const id = a.getAttribute("href"); const t = id.length > 1 && document.querySelector(id); if(!t) return;
+      e.preventDefault();
+      if(a.hasAttribute("data-start")) return Page.startFromCta(a.dataset.plan);
+      t.scrollIntoView({ behavior: Page.smooth(), block: "start" });
+    }));
+    const fab = $("fab");
+    fab.addEventListener("click", () => Page.startFromCta());
+    if("IntersectionObserver" in window){
+      const seen = { hero: true, sim: false };
+      const io = new IntersectionObserver(es => { es.forEach(en => { seen[en.target.id === "simulacao" ? "sim" : "hero"] = en.isIntersecting; }); fab.hidden = seen.hero || seen.sim; }, { threshold: 0.1 });
+      io.observe(document.querySelector(".hero")); io.observe($("simulacao"));
+    } else fab.hidden = false;
+    $("chat-form").addEventListener("submit", Chat.onSubmit);
+    $("chat-new").addEventListener("click", () => UI.toEnd(true));
+    UI.log.addEventListener("scroll", () => { if(UI.nearEnd()) $("chat-new").hidden = true; });
+    $("chat-restart").addEventListener("click", () => Reset.start("cta"));
+    $("broker-open").addEventListener("click", Broker.open);
+    $("broker-close").addEventListener("click", Broker.close);
+    Broker.dialog.addEventListener("click", e => { if(e.target === Broker.dialog) Broker.close(); });
+    Reset.start("idle");
+  }
+};
+Page.init();
+
+</script>
+</body>
+</html>
